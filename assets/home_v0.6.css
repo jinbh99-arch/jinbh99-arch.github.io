@@ -1,4 +1,4 @@
-/* 우리아이레벨테스트 메인 v0.5 · 2026-11-03 */
+/* 우리아이레벨테스트 메인 v0.6 · 2026-11-03 */
 :root{--ink:#17263b;--muted:#516178;--line:#dfe6ef;--bg:#f6f8fb;--card:#fff;--navy:#1c3f7a;--g12:#2f9e6b;--g12-bg:#e8f6ef;--g34:#2f7fd1;--g34-bg:#e8f1fc;--g56:#d9822b;--g56-bg:#fdf1e4;--ai:#6b7280;--official:#344777}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -86,3 +86,28 @@ footer{padding:26px 0 40px;font-size:13px;color:var(--muted)}
 .page h2{font-size:17px;margin:0 0 6px}
 .page p,.page li{line-height:1.7;font-size:15px}
 .mail{font-size:18px;font-weight:800}
+
+/* v0.6 추가: 학년별 교과목 한눈에 */
+.overview{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin:18px auto 8px}
+.overview h2{font-size:19px;margin:0 0 4px}
+.overview .lead{margin:0 0 10px;color:var(--muted);font-size:14px}
+.stable{width:100%;border-collapse:separate;border-spacing:0 6px;table-layout:fixed}
+.stable th,.stable td{text-align:center;font-size:13px;padding:6px 3px;vertical-align:middle}
+.stable thead th{font-size:13px;color:var(--muted)}
+.stable thead th.b12{color:var(--g12)}.stable thead th.b34{color:var(--g34)}.stable thead th.b56{color:var(--g56)}
+.stable th[scope=row]{text-align:left;font-weight:700;width:36%;font-size:14px}
+.stable th[scope=row] small{display:block;font-weight:400;color:var(--muted);font-size:11px}
+.stable td{background:#f3f5f9;border-radius:10px}
+.stable td.yes{background:#eef4ff}
+.stable td.no{color:#a7b0bd}
+.stable td b{display:block;font-size:14px}
+.stable td .bar{display:block;height:5px;border-radius:3px;background:#c7d6ee;margin:4px auto 0;overflow:hidden}
+.stable td .bar i{display:block;height:100%;background:var(--navy)}
+.stable [data-band].on{outline:2px solid var(--navy);outline-offset:-2px}
+.stable tr.cea th,.stable tr.cea td{border-top:1px dashed #b8a9e0}
+.stable tfoot td,.stable tfoot th{font-weight:800;background:none}
+.overview details{font-size:13px;color:var(--muted);margin-top:8px}
+.overview summary{cursor:pointer;font-weight:700;min-height:36px;display:flex;align-items:center}
+.overview li{margin:4px 0}
+@media(min-width:820px){.stable th[scope=row]{width:28%}}
+@media(max-width:400px){.stable th[scope=row]{font-size:13px}.stable td{padding:6px 2px}.stable td b{font-size:12px;white-space:nowrap}.stable td small{font-size:10px}}
