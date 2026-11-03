@@ -1,4 +1,4 @@
-/* 우리아이레벨테스트 v0.12 · 2026-11-04 (v0.11 점검 화면 기준, 학년 안내 글 링크 추가)
+/* 우리아이레벨테스트 v0.13 · 2026-11-04 (v0.12 점검 화면 기준, 카드 설명 그림 추가)
    첫 화면: 과목(수학·국어·영어)과 학년을 고르면 '꼭 할 수 있어야 하는 것'을 하나씩 확인하고, 막힌 곳은 이전 학년 단원으로 안내한다.
    확인 결과는 이 브라우저에만 잠시 저장한다(서버 전송 없음). */
 (function(){'use strict';
@@ -19,6 +19,7 @@
   var q=el('div','ck-q');q.append(el('b','','아이에게 물어보세요'),el('p','',it.question));
   var AL=D.labels.answer||'정답';var ab=el('button','ck-ans-btn',AL+' 보기');ab.type='button';ab.setAttribute('aria-expanded','false');var ans=el('p','ck-ans',AL+': '+it.answer);ans.hidden=true;ans.id='ans-'+it.id;ab.setAttribute('aria-controls',ans.id);
   ab.addEventListener('click',function(){ans.hidden=!ans.hidden;ab.setAttribute('aria-expanded',String(!ans.hidden));ab.textContent=AL+(ans.hidden?' 보기':' 숨기기')});
+  var IL=window.URIAI_ILL||{};if(IL[it.id]){var fg=el('figure','ck-fig');fg.innerHTML=IL[it.id];fg.append(el('figcaption','','그림을 보여 주며 물어봐도 좋아요'));q.append(fg)}
   q.append(ab,ans);c.append(q);
   var btns=el('div','ck-lv');btns.setAttribute('role','group');btns.setAttribute('aria-label','아이가 어땠나요?');
   LV.forEach(function(l){var b=el('button','lv lv-'+l[0]);b.type='button';b.dataset.lv=l[0];b.append(el('span','',l[2]+' '),document.createTextNode(l[1]));b.setAttribute('aria-pressed',String(state[it.id]===l[0]));
