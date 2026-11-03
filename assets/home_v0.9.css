@@ -1,4 +1,4 @@
-/* 우리아이레벨테스트 메인 v0.8 · 2026-11-03 */
+/* 우리아이레벨테스트 공통 스타일 v0.9 · 2026-11-04 */
 :root{--ink:#17263b;--muted:#516178;--line:#dfe6ef;--bg:#f6f8fb;--card:#fff;--navy:#1c3f7a;--g12:#2f9e6b;--g12-bg:#e8f6ef;--g34:#2f7fd1;--g34-bg:#e8f1fc;--g56:#d9822b;--g56-bg:#fdf1e4;--ai:#6b7280;--official:#344777}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -177,3 +177,53 @@ footer{padding:26px 0 40px;font-size:13px;color:var(--muted)}
 .more{display:inline-block;margin:4px 12px 10px;font-size:14px;font-weight:700;color:#174c9d;text-decoration:none;min-height:36px}
 .cpanel>.more{margin-left:0}
 @media(max-width:400px){.ghead,.cell{font-size:12.5px}.cell[data-f="cea"]{font-size:11px}.sgrid{border-spacing:3px}}
+/* v0.9 추가: 첫 화면 수학 점검, 교재 학년 찾기 */
+.hero2{padding:22px 0 6px;text-align:center}
+.hero2 h1{font-size:clamp(23px,6vw,32px);line-height:1.35;margin:0 0 8px}
+.hero2 p{margin:0;color:var(--muted)}
+.gpick{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:16px 0}
+@media(min-width:700px){.gpick{grid-template-columns:repeat(6,1fr)}}
+.gpick button{min-height:64px;border-radius:14px;border:2px solid #c9d5e5;background:#fff;font-size:19px;font-weight:800;color:var(--ink)}
+.gpick button small{display:block;font-size:12px;font-weight:600;color:var(--muted)}
+.gpick button[aria-pressed="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}.gpick button[aria-pressed="true"] small{color:#dbe6f7}
+#check-head h2{font-size:21px;margin:10px 0 2px}
+.csum{position:sticky;top:0;z-index:5;background:#fff;border:2px solid var(--navy);border-radius:14px;padding:10px 14px;margin:10px 0}
+.csum h3{margin:0 0 6px;font-size:16px}.csum p{margin:6px 0;font-size:14px}
+.sbar{height:8px;background:#e4ebf4;border-radius:5px;overflow:hidden}.sbar i{display:block;height:100%;background:#2f9e6b}
+.csum .need{margin:4px 0;padding-left:18px;font-size:13px;max-height:120px;overflow:auto}
+.csum .ok{color:#0f6b4f;font-weight:700}
+.linkbtn{background:none;border:0;color:#174c9d;text-decoration:underline;font-size:13px;min-height:36px;padding:0}
+.cklist{display:grid;gap:12px}
+@media(min-width:820px){.cklist{grid-template-columns:1fr 1fr}}
+.ck{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;scroll-margin-top:130px}
+.ck[data-lv="good"]{border-color:#2f9e6b;background:#f3fbf6}.ck[data-lv="unsure"]{border-color:#e6a31a}.ck[data-lv="no"]{border-color:#d9534f}
+.ck-top{display:flex;gap:8px;align-items:center;font-size:12px;color:var(--muted)}
+.ck-n{background:var(--navy);color:#fff;border-radius:999px;min-width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;font-weight:800}
+.ck-can{font-size:17px;margin:8px 0;line-height:1.45}
+.ck-q{background:#fff8e6;border-radius:12px;padding:10px 12px}
+.ck-q p{margin:4px 0;font-size:15px}
+.ck-ans-btn{background:none;border:0;color:#174c9d;font-weight:700;min-height:36px;padding:0}
+.ck-ans{font-weight:700;color:#0f6b4f}
+.ck-lv{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:10px 0 4px}
+.lv{min-height:46px;border-radius:12px;border:1.5px solid #c9d5e5;background:#fff;font-size:14px;font-weight:700;padding:4px}
+.lv-good[aria-pressed="true"]{background:#2f9e6b;color:#fff;border-color:#2f9e6b}
+.lv-unsure[aria-pressed="true"]{background:#e6a31a;color:#fff;border-color:#e6a31a}
+.lv-no[aria-pressed="true"]{background:#d9534f;color:#fff;border-color:#d9534f}
+.ck-help{background:#f3f5f9;border-radius:12px;padding:8px 12px;margin-top:6px}
+.ck-help p{margin:6px 0;font-size:14px}
+.ck-std{font-size:12px;color:var(--muted);margin-top:6px}
+.ck-std summary{cursor:pointer;min-height:32px;display:flex;align-items:center}
+.ck-std ul{padding-left:18px;margin:4px 0}
+.findsec{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;margin:22px 0}
+.findsec h2{font-size:19px;margin:0 0 4px}
+.findsec input{width:100%;font:inherit;font-size:16px;min-height:48px;border:1.5px solid #9fb1c8;border-radius:12px;padding:10px 12px;margin:8px 0}
+.fchips{display:flex;flex-wrap:wrap;gap:6px}
+.fchip{border:1px solid #c9d5e5;background:#f6f8fb;border-radius:999px;padding:6px 12px;min-height:36px;font-size:13px}
+.fitem{display:block;text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:6px 0;background:#fbfcfe}
+.fitem .fg{display:inline-block;background:var(--navy);color:#fff;border-radius:999px;font-size:12px;font-weight:800;padding:2px 8px;margin-right:6px}
+.fitem .ft{display:block;font-size:13px;color:var(--muted);margin-top:4px}
+.static-grade{background:#fff;border:1px solid var(--line);border-radius:12px;margin:6px 0}
+.static-grade summary{cursor:pointer;font-weight:800;padding:10px 12px;min-height:44px;display:flex;align-items:center}
+.static-grade ul{margin:0 0 10px;padding-left:30px;font-size:14px}
+.side-note{font-size:13px;color:var(--muted);margin:10px 0}
+@media(max-width:699px){.csum{position:static}}
