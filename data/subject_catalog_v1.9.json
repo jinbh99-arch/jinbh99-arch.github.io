@@ -1,0 +1,386 @@
+{
+  "version": "1.9",
+  "status": "2026_curriculum_partial_verified_with_2028_amendment_notice",
+  "disclaimer": "2026학년도 학년군 교과 편제를 2022-33호 총론 별책1 재게시 웹 추출 내용과 교육청 자료로 교차 검토했습니다. 국가기관 원본과 사본의 동일성, 후속 고시 전체 확인은 아직 미완료입니다. 2026-1호의 건강한 생활 신설은 2028년 초등 1~2학년 적용 예정입니다.",
+  "grade_mapping_basis": "2022-33호 별책1 편제(공공기관 재게시 웹 추출 내용 대조)와 교육청 2026 자료 기준 학년군 항목을 각 학년 화면에 반복 표시하는 UI이며 개별 학년 실제 시간표를 보증하지 않음",
+  "subjects": [
+    {
+      "subject_id": "korean",
+      "display_name": "국어",
+      "grade_bands": [
+        "1-2",
+        "3-4",
+        "5-6"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "short_intro": "듣기·말하기·읽기·쓰기를 통해 생각을 표현하고 소통해요.",
+      "curriculum_source_id": "secondary_annex_1",
+      "verification_status": "partial",
+      "detail_status": "pending_integration",
+      "route_key": "korean",
+      "sort_order": 1,
+      "verification_detail": "2022-33 편제 재게시본 대조만 수행; 개정 적용 및 개별 학년 편성 미확인",
+      "parent_question": "읽은 글이나 오늘 있었던 일을 한 문장으로 이야기해 볼까요?",
+      "parent_question_source": "ai_authored_example_unverified"
+    },
+    {
+      "subject_id": "math",
+      "display_name": "수학",
+      "grade_bands": [
+        "1-2",
+        "3-4",
+        "5-6"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "short_intro": "수와 도형, 규칙과 자료를 탐구하며 문제를 해결해요.",
+      "curriculum_source_id": "secondary_annex_1",
+      "verification_status": "partial",
+      "detail_status": "pending_integration",
+      "route_key": "math",
+      "sort_order": 2,
+      "verification_detail": "2022-33 편제 재게시본 대조만 수행; 개정 적용 및 개별 학년 편성 미확인",
+      "parent_question": "오늘 생활 속에서 수나 모양을 발견한 곳이 있나요?",
+      "parent_question_source": "ai_authored_example_unverified"
+    },
+    {
+      "subject_id": "english",
+      "display_name": "영어",
+      "grade_bands": [
+        "3-4",
+        "5-6"
+      ],
+      "grades": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "short_intro": "기초적인 영어 표현을 듣고 말하며 의사소통을 연습해요.",
+      "curriculum_source_id": "secondary_annex_1",
+      "verification_status": "partial",
+      "detail_status": "pending_integration",
+      "route_key": "english",
+      "sort_order": 3,
+      "verification_detail": "2022-33 편제 재게시본 대조만 수행; 개정 적용 및 개별 학년 편성 미확인",
+      "parent_question": "오늘 배운 영어 표현 한 가지를 함께 말해 볼까요?",
+      "parent_question_source": "ai_authored_example_unverified"
+    },
+    {
+      "subject_id": "social_studies",
+      "display_name": "사회",
+      "grade_bands": [
+        "3-4",
+        "5-6"
+      ],
+      "grades": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "short_intro": "우리 주변과 사회의 모습, 공동체의 생활을 알아봐요.",
+      "curriculum_source_id": "secondary_annex_1",
+      "verification_status": "partial",
+      "detail_status": "intro_only",
+      "route_key": null,
+      "sort_order": 4,
+      "verification_detail": "2022-33 편제 재게시본 대조만 수행; 개정 적용 및 개별 학년 편성 미확인",
+      "parent_question": "우리 동네에서 함께 쓰는 시설에는 무엇이 있을까요?",
+      "parent_question_source": "ai_authored_example_unverified"
+    },
+    {
+      "subject_id": "ethics",
+      "display_name": "도덕",
+      "grade_bands": [
+        "3-4",
+        "5-6"
+      ],
+      "grades": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "short_intro": "자신과 다른 사람을 존중하고 바람직한 삶을 생각해요.",
+      "curriculum_source_id": "secondary_annex_1",
+      "verification_status": "partial",
+      "detail_status": "intro_only",
+      "route_key": null,
+      "sort_order": 5,
+      "verification_detail": "2022-33 편제 재게시본 대조만 수행; 개정 적용 및 개별 학년 편성 미확인",
+      "parent_question": "친구에게 배려를 표현할 수 있는 방법을 이야기해 볼까요?",
+      "parent_question_source": "ai_authored_example_unverified"
+    },
+    {
+      "subject_id": "science",
+      "display_name": "과학",
+      "grade_bands": [
+        "3-4",
+        "5-6"
+      ],
+      "grades": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "short_intro": "자연 현상을 관찰하고 질문하며 탐구해요.",
+      "curriculum_source_id": "secondary_annex_1",
+      "verification_status": "partial",
+      "detail_status": "intro_only",
+      "route_key": null,
+      "sort_order": 6,
+      "verification_detail": "2022-33 편제 재게시본 대조만 수행; 개정 적용 및 개별 학년 편성 미확인",
+      "parent_question": "주변에서 관찰하고 싶은 자연 현상은 무엇인가요?",
+      "parent_question_source": "ai_authored_example_unverified"
+    },
+    {
+      "subject_id": "practical_arts",
+      "display_name": "실과",
+      "grade_bands": [
+        "5-6"
+      ],
+      "grades": [
+        5,
+        6
+      ],
+      "short_intro": "생활에 필요한 실천 능력과 기술을 익혀요.",
+      "curriculum_source_id": "secondary_annex_1",
+      "verification_status": "partial",
+      "detail_status": "intro_only",
+      "route_key": null,
+      "sort_order": 7,
+      "verification_detail": "2022-33 편제 재게시본 대조만 수행; 개정 적용 및 개별 학년 편성 미확인",
+      "parent_question": "집에서 스스로 해 볼 수 있는 생활 일은 무엇인가요?",
+      "parent_question_source": "ai_authored_example_unverified"
+    },
+    {
+      "subject_id": "physical_education",
+      "display_name": "체육",
+      "grade_bands": [
+        "3-4",
+        "5-6"
+      ],
+      "grades": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "short_intro": "몸을 움직이며 건강과 협동의 가치를 배워요.",
+      "curriculum_source_id": "secondary_annex_1",
+      "verification_status": "partial",
+      "detail_status": "intro_only",
+      "route_key": null,
+      "sort_order": 8,
+      "verification_detail": "2022-33 편제 재게시본 대조만 수행; 개정 적용 및 개별 학년 편성 미확인",
+      "parent_question": "오늘 몸을 움직이며 즐거웠던 활동을 이야기해 볼까요?",
+      "parent_question_source": "ai_authored_example_unverified"
+    },
+    {
+      "subject_id": "music",
+      "display_name": "음악",
+      "grade_bands": [
+        "3-4",
+        "5-6"
+      ],
+      "grades": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "short_intro": "노래와 연주, 감상을 통해 음악을 즐겨요.",
+      "curriculum_source_id": "secondary_annex_1",
+      "verification_status": "partial",
+      "detail_status": "intro_only",
+      "route_key": null,
+      "sort_order": 9,
+      "verification_detail": "2022-33 편제 재게시본 대조만 수행; 개정 적용 및 개별 학년 편성 미확인",
+      "parent_question": "오늘 기억에 남는 소리나 리듬이 있었나요?",
+      "parent_question_source": "ai_authored_example_unverified"
+    },
+    {
+      "subject_id": "art",
+      "display_name": "미술",
+      "grade_bands": [
+        "3-4",
+        "5-6"
+      ],
+      "grades": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "short_intro": "보고 느낀 것을 다양한 재료로 표현해요.",
+      "curriculum_source_id": "secondary_annex_1",
+      "verification_status": "partial",
+      "detail_status": "intro_only",
+      "route_key": null,
+      "sort_order": 10,
+      "verification_detail": "2022-33 편제 재게시본 대조만 수행; 개정 적용 및 개별 학년 편성 미확인",
+      "parent_question": "주변에서 눈에 띄는 색이나 모양은 무엇인가요?",
+      "parent_question_source": "ai_authored_example_unverified"
+    },
+    {
+      "subject_id": "right_living",
+      "display_name": "바른 생활",
+      "grade_bands": [
+        "1-2"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "short_intro": "일상에서 바른 생활 습관과 관계를 익혀요.",
+      "curriculum_source_id": "secondary_annex_1",
+      "verification_status": "partial",
+      "detail_status": "intro_only",
+      "route_key": null,
+      "sort_order": 11,
+      "verification_detail": "2022-33 편제 재게시본 대조만 수행; 개정 적용 및 개별 학년 편성 미확인",
+      "parent_question": "오늘 우리 주변에서 지킨 약속을 이야기해 볼까요?",
+      "parent_question_source": "ai_authored_example_unverified"
+    },
+    {
+      "subject_id": "wise_living",
+      "display_name": "슬기로운 생활",
+      "grade_bands": [
+        "1-2"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "short_intro": "주변의 사람과 자연, 생활을 관찰하고 탐색해요.",
+      "curriculum_source_id": "secondary_annex_1",
+      "verification_status": "partial",
+      "detail_status": "intro_only",
+      "route_key": null,
+      "sort_order": 12,
+      "verification_detail": "2022-33 편제 재게시본 대조만 수행; 개정 적용 및 개별 학년 편성 미확인",
+      "parent_question": "일상에서 궁금했던 것을 하나 골라 질문해 볼까요?",
+      "parent_question_source": "ai_authored_example_unverified"
+    },
+    {
+      "subject_id": "joyful_living",
+      "display_name": "즐거운 생활",
+      "grade_bands": [
+        "1-2"
+      ],
+      "grades": [
+        1,
+        2
+      ],
+      "short_intro": "놀이와 표현 활동을 통해 즐겁게 배우고 어울려요.",
+      "curriculum_source_id": "secondary_annex_1",
+      "verification_status": "partial",
+      "detail_status": "intro_only",
+      "route_key": null,
+      "sort_order": 13,
+      "verification_detail": "2022-33 편제 재게시본 대조만 수행; 개정 적용 및 개별 학년 편성 미확인",
+      "parent_question": "오늘 즐겁게 표현하거나 놀이한 일을 이야기해 볼까요?",
+      "parent_question_source": "ai_authored_example_unverified"
+    }
+  ],
+  "creative_experiential_activities": {
+    "title": "창의적 체험활동",
+    "type": "non_subject",
+    "intro": "교과(군)와 별도로 편성되며, 2022 개정 교육과정에는 자율·자치 활동, 동아리 활동, 진로 활동이 제시됩니다. 학교별 운영은 다를 수 있습니다.",
+    "verification_status": "partial",
+    "curriculum_source_id": "secondary_annex_1"
+  },
+  "routes": {},
+  "source_evidence": [
+    {
+      "id": "moe_2022_33_notice",
+      "title": "교육부 고시 제2022-33호 총론 및 각론 고시",
+      "url": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=141&boardSeq=93458&lev=0&statusYN=W",
+      "verification": "공식 고시 게시글·별책 목록 확인, 별책1 첨부 파일 본문 독립대조 미완료"
+    },
+    {
+      "id": "secondary_annex_1",
+      "title": "교육부 고시 제2022-33호 별책1 재게시 PDF의 초등학교 편제 표",
+      "url": "https://ezentextbook.co.kr/fileRequest/download?file=%2Fgoods%2Frelated_data%2F20250110183719_5528.pdf",
+      "verification": "공식 원본과의 파일 동일성 미검증; 편제 문구 대조 근거"
+    },
+    {
+      "id": "ncic_2026_1",
+      "title": "국가교육위원회 고시 제2026-1호 안내(국가교육과정정보센터)",
+      "url": "https://ncic.re.kr/bbs/ncicnotice/view/1859.do",
+      "verification": "초등 1~2학년 건강한 생활 신설 및 2028년 적용 고시 확인; 별책 본문 독립대조 미완료"
+    },
+    {
+      "id": "law_2026_1",
+      "title": "국가법령정보센터 국가교육위원회 고시 제2026-1호 제개정 이유",
+      "url": "https://www.law.go.kr/admRulInfoP.do?admRulSeq=2100000273516&chrClsCd=010202&urlMode=admRulRvsInfoR",
+      "verification": "건강한 생활 신설 및 시행 고시 교차 확인"
+    },
+    {
+      "id": "goe_2026_curriculum",
+      "title": "경기도교육청 2026학년도 초등 학교교육과정 설계 안내 자료",
+      "url": "https://www.goe.go.kr/resource/goe/na/bbs_2675/2025/12/f54a3f12-2fbe-4fba-9013-646df1a199a9.pdf",
+      "verification": "2026학년도 1~2,3~4,5~6 편제 교과(군) 구성 확인; 공식 고시 별책 전체 검증 대체 불가"
+    },
+    {
+      "id": "cncae_annex1_rehost",
+      "title": "국가교육위원회 산하 기관 게시 별책1 총론 사본",
+      "url": "https://caesec.cncae.go.kr/files/tmp/916655001740560418.pdf",
+      "verification": "웹 검색 추출 본문에서 편제 및 창의적 체험활동 구성 재대조; 공식 게시 원본과 파일 동일성은 미확인"
+    }
+  ],
+  "curriculum_review": {
+    "basis": "2022-33",
+    "basis_status": "2022_33_annex1_web_text_crosscheck_plus_2026_office_and_2026_1_future_notice",
+    "official_annex_independently_verified": false,
+    "later_amendments_exhaustively_checked": false,
+    "current_2026_applicability_verified": false,
+    "individual_grade_assignment_verified": false,
+    "review_date": "2026-11-03",
+    "grade_band_subject_counts": {
+      "1-2": 5,
+      "3-4": 9,
+      "5-6": 10
+    },
+    "note": "2022-33호 별책1 총론 편제 문구(국가교육위원회 산하 기관 게시 PDF의 웹 추출 결과)와 2026학년도 교육청 자료 비교. 1~2학년 국어·수학·바른생활·슬기로운생활·즐거운생활, 3~4학년 실과 미편성, 5~6학년 과학/실과 편제, 창의적 체험활동 별도. 재게시 사본의 공식 원본 동일성 및 후속 개정 전수 확인은 미완료."
+  },
+  "application_schedule_2022_33": {
+    "1-2": "2024-03-01",
+    "3-4": "2025-03-01",
+    "5-6": "2026-03-01",
+    "verification": "official_notice_text_confirmed",
+    "latest_amendments_reviewed": false,
+    "official_notice_url": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=141&boardSeq=93458&lev=0&statusYN=W"
+  },
+  "parent_content_notice": "과목 소개와 집에서 나눌 질문은 안내용 AI 작성 내용으로, 교육부 공식 성취기준이나 학년별 평가기준이 아닙니다.",
+  "ui_release": "1.0-rc5",
+  "verification_policy_note": "2026-1호 초등 적용은 2028년부터. 따라서 2026년 교과 목록에 건강한 생활을 추가하지 않음. 국가교육위원회 이후 개정 전수 확인 미완료.",
+  "search_scope": "subject_name,short_intro,parent_question",
+  "future_change_notice": {
+    "amendment": "국가교육위원회 고시 제2026-1호",
+    "issued": "2026-01-21",
+    "effective_elementary_grades_1_2": "2028-03-01",
+    "new_subject": "건강한 생활",
+    "current_catalog_includes_new_subject": false,
+    "status": "amendment_effective_date_confirmed",
+    "scope_note": "2026년 1~2학년 과목 목록에는 추가하지 않음; 2028년 개편에 맞추어 추후 데이터 버전 분기 필요"
+  },
+  "target_school_year": 2026,
+  "source_evidence_reviewed_at": "2026-11-03",
+  "accessibility_review": "RC5: 콜백 예외 및 비동기 실패 경고, 경로 갱신 시 검색 초점 유지, 320/390/768/1280px 브라우저 검증. 운영 URL·실기기·스크린리더 미검증"
+}

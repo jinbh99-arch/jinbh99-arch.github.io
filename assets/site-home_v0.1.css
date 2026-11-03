@@ -1,0 +1,29 @@
+/* 아들레벨테스트 통합홈 v0.1 · 2026-11-03 — 사이트 껍데기 전용 스타일 (RC5 모듈 스타일은 subject-menu_v2.3.css 그대로 사용) */
+:root{--site-ink:#18273e;--site-muted:#4a5b72;--site-line:#d9e1ec;--site-bg:#f5f7fb;--site-navy:#193a73;--site-ok:#0f6b4f;--site-ok-bg:#e6f4ee;--site-wait:#7a5a00;--site-wait-bg:#fff4d6}
+*{box-sizing:border-box}
+body{margin:0;background:var(--site-bg);color:var(--site-ink);font-family:system-ui,-apple-system,'Malgun Gothic','Apple SD Gothic Neo',sans-serif;-webkit-text-size-adjust:100%}
+.site-bar{background:#fff;border-bottom:1px solid var(--site-line)}
+.site-bar-inner{max-width:1040px;margin:auto;padding:10px 16px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 12px}
+.site-brand{font-weight:800;color:var(--site-navy);text-decoration:none;font-size:17px}
+.site-version{font-size:12px;color:var(--site-muted)}
+.site-section{max-width:1040px;margin:0 auto;padding:0 16px}
+.site-section>div{background:#fff;border:1px solid var(--site-line);border-radius:16px;padding:18px;margin:0 0 16px}
+.site-section h2{font-size:19px;margin:0 0 6px}
+.site-section p{line-height:1.65;margin:6px 0;font-size:14px}
+.site-status-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:10px;margin-top:12px;padding:0;list-style:none}
+.site-status-list li{border:1px solid var(--site-line);border-radius:12px;padding:14px;min-width:0;overflow-wrap:anywhere}
+.site-status-list h3{margin:0 0 6px;font-size:17px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.site-pill{display:inline-block;font-size:12px;font-weight:700;border-radius:999px;padding:3px 9px}
+.site-pill.linked{background:var(--site-ok-bg);color:var(--site-ok)}
+.site-pill.preparing{background:var(--site-wait-bg);color:var(--site-wait)}
+.site-status-list dl{margin:0;font-size:13px;line-height:1.6}
+.site-status-list dt{font-weight:700;margin-top:6px}
+.site-status-list dd{margin:0;color:var(--site-muted)}
+.site-legend{display:grid;gap:8px;margin-top:10px}
+.site-legend p{margin:0;padding:10px 12px;border-radius:10px;font-size:14px}
+.site-legend .official{background:#eef2fb;border-left:4px solid #344777}
+.site-legend .ai{background:#f4f4f4;border-left:4px solid #8a8a8a}
+.site-footer{max-width:1040px;margin:0 auto;padding:4px 16px 40px;font-size:13px;color:var(--site-muted);line-height:1.6}
+.site-error{background:#fdecec;border:1px solid #f1b5b5;color:#7a1c1c;border-radius:12px;padding:14px;margin:16px}
+.site-root-wrap .subject-menu-root{padding-bottom:24px}
+a:focus-visible{outline:3px solid #1769dd;outline-offset:2px}
