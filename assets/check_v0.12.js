@@ -1,4 +1,4 @@
-/* 우리아이레벨테스트 v0.11 · 2026-11-04 (v0.10 점검 화면 기준)
+/* 우리아이레벨테스트 v0.12 · 2026-11-04 (v0.11 점검 화면 기준, 학년 안내 글 링크 추가)
    첫 화면: 과목(수학·국어·영어)과 학년을 고르면 '꼭 할 수 있어야 하는 것'을 하나씩 확인하고, 막힌 곳은 이전 학년 단원으로 안내한다.
    확인 결과는 이 브라우저에만 잠시 저장한다(서버 전송 없음). */
 (function(){'use strict';
@@ -44,7 +44,7 @@
   var rs=el('button','linkbtn','이 학년 확인 기록 지우기');rs.type='button';rs.addEventListener('click',function(){state={};save(cur);render()});sum.append(rs);
  }
  function render(){var L=items(cur);if(!L.length){head.replaceChildren(el('h2','',cur+'학년 '+SN[subj]),el('p','lead',SN[subj]+'는 학교에서 '+(D.grades?D.grades[0]:3)+'학년부터 배워요. 위에서 다른 학년이나 과목을 골라 주세요.'));list.replaceChildren();sum.hidden=true;return}
-  head.replaceChildren(el('h2','',cur+'학년 '+SN[subj]+', 이것만은 할 수 있어야 해요'),el('p','lead','항목 '+L.length+'개 · 질문은 아이에게 말로 물어보면 돼요. 시험이 아니라 대화로 확인하는 거예요.'+(D.labels.answer_note?' '+D.labels.answer_note:'')));
+  head.replaceChildren(el('h2','',cur+'학년 '+SN[subj]+', 이것만은 할 수 있어야 해요'),el('p','lead','항목 '+L.length+'개 · 질문은 아이에게 말로 물어보면 돼요. 시험이 아니라 대화로 확인하는 거예요.'+(D.labels.answer_note?' '+D.labels.answer_note:'')));var gl=el('a','more guide-link','📘 '+cur+'학년 1년 학습 안내 글 읽기 →');gl.href='./guide-'+cur+'.html';head.append(gl);
   list.replaceChildren.apply(list,L.map(function(it,i){return card(it,i+1)}));summary()}
  function counts(){[].forEach.call(gbox.querySelectorAll('button'),function(b){var s=b.querySelector('small'),n=items(Number(b.dataset.grade)).length;if(s)s.textContent=n?n+'개 확인':(D.grades?D.grades[0]:3)+'학년부터';b.classList.toggle('none',!n)})}
  function setSubj(s,keep){if(!DD[s])return;subj=s;D=DD[s];[].forEach.call(sbox.querySelectorAll('button'),function(b){b.setAttribute('aria-pressed',String(b.dataset.subject===s))});counts();

@@ -1,4 +1,4 @@
-/* 우리아이레벨테스트 공통 스타일 v0.11 · 2026-11-04 */
+/* 우리아이레벨테스트 공통 스타일 v0.12 · 2026-11-04 */
 :root{--ink:#17263b;--muted:#516178;--line:#dfe6ef;--bg:#f6f8fb;--card:#fff;--navy:#1c3f7a;--g12:#2f9e6b;--g12-bg:#e8f6ef;--g34:#2f7fd1;--g34-bg:#e8f1fc;--g56:#d9822b;--g56-bg:#fdf1e4;--ai:#6b7280;--official:#344777}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -233,3 +233,25 @@ footer{padding:26px 0 40px;font-size:13px;color:var(--muted)}
 .spick button[aria-pressed="true"]{background:#fff8e6;border-color:#d9822b;color:#8a4b0f}
 .sg-h{font-size:15px;margin:12px 0 4px}
 .gpick button.none{opacity:.55;border-style:dashed}
+/* v0.12 학년별 안내 글 */
+.art{max-width:760px;margin:0 auto;padding:0 16px 24px}
+.art .crumb{font-size:13px;color:var(--muted);margin:14px 0 4px}.art .crumb a{color:var(--muted)}
+.art h1{font-size:clamp(23px,5.6vw,30px);line-height:1.35;margin:6px 0 8px}
+.art .byline{font-size:12px;color:var(--muted);margin:0 0 14px}
+.art .lead{font-size:16px;line-height:1.75}
+.art h2{font-size:20px;margin:28px 0 10px;padding-top:6px;border-top:1px solid var(--line)}
+.art h3{font-size:17px;margin:0 0 6px}
+.art p,.art li{line-height:1.75}
+.art .box{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:10px 0}
+.art .hurdle .q{background:#fff8e6;border-radius:10px;padding:10px 12px;margin:8px 0;font-size:14px}
+.art .hurdle .std{font-size:12px;color:var(--muted)}
+.art .sems{display:grid;gap:10px}@media(min-width:640px){.art .sems{grid-template-columns:1fr 1fr}}
+.art .sems ul{margin:4px 0 0;padding-left:20px}
+.art .cta{display:flex;align-items:center;justify-content:center;min-height:50px;border-radius:12px;background:var(--navy);color:#fff;text-decoration:none;font-weight:800;margin:18px 0}
+.art .pn{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:14px}
+.art details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:8px 14px;margin:8px 0}
+.art details summary{cursor:pointer;font-weight:700;min-height:40px;display:flex;align-items:center}
+.gcards{display:grid;gap:12px;margin:16px 0}@media(min-width:700px){.gcards{grid-template-columns:1fr 1fr}}
+.gcard{display:block;background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;text-decoration:none;color:var(--ink)}
+.gcard b{display:block;font-size:17px;margin-bottom:6px;color:var(--navy)}.gcard span{font-size:14px;color:var(--muted)}
+.guide-link{display:inline-block;margin:4px 0 0;font-weight:700}
