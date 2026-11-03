@@ -1,4 +1,4 @@
-/* 우리아이레벨테스트 공통 스타일 v0.10 · 2026-11-04 */
+/* 우리아이레벨테스트 공통 스타일 v0.11 · 2026-11-04 */
 :root{--ink:#17263b;--muted:#516178;--line:#dfe6ef;--bg:#f6f8fb;--card:#fff;--navy:#1c3f7a;--g12:#2f9e6b;--g12-bg:#e8f6ef;--g34:#2f7fd1;--g34-bg:#e8f1fc;--g56:#d9822b;--g56-bg:#fdf1e4;--ai:#6b7280;--official:#344777}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -228,7 +228,8 @@ footer{padding:26px 0 40px;font-size:13px;color:var(--muted)}
 .side-note{font-size:13px;color:var(--muted);margin:10px 0}
 @media(max-width:699px){.csum{position:static}}
 /* v0.10 과목 선택 */
-.spick{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0 0}
+.spick{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0 0}
 .spick button{min-height:52px;border-radius:14px;border:2px solid #c9d5e5;background:#fff;font-size:18px;font-weight:800;color:var(--ink)}
 .spick button[aria-pressed="true"]{background:#fff8e6;border-color:#d9822b;color:#8a4b0f}
 .sg-h{font-size:15px;margin:12px 0 4px}
+.gpick button.none{opacity:.55;border-style:dashed}

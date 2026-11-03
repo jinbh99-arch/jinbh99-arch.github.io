@@ -1,4 +1,4 @@
-/* 우리아이레벨테스트 v0.8 · 2026-11-03
+/* 우리아이레벨테스트 v0.11 · 2026-11-04 (v0.8 표 기준, 단원 자료 v1.1 사용)
    첫 화면 학년×과목 표: 칸을 누르면 그 과목·학년의 단원, 쉬운 설명, 관련 성취기준을 펼쳐 보여 준다. */
 (function(){'use strict';
  var grid=document.getElementById('sgrid'),panel=document.getElementById('cell-panel');if(!grid||!panel)return;
@@ -52,7 +52,7 @@
  function mark(grade,subject){[].forEach.call(grid.querySelectorAll('[data-g]'),function(c){var gs=c.dataset.g.split(',').map(Number);c.classList.toggle('col',gs.indexOf(grade)>=0);c.classList.toggle('sel',!!subject&&c.dataset.s===subject&&gs.indexOf(grade)>=0);if(c.tagName==='BUTTON')c.setAttribute('aria-pressed',String(c.classList.contains('sel')))})}
  function open(subject,grade,scroll){mark(grade,subject);render(subject,grade);try{history.replaceState(null,'','?grade='+grade+'&subject='+subject)}catch(e){}
   if(scroll){try{panel.scrollIntoView({behavior:'smooth',block:'start'})}catch(e){panel.scrollIntoView()}var t=document.getElementById('cell-title');if(t)t.focus({preventScroll:true})}}
- Promise.all([J('./data/math_units_v1.0.json'),J('./data/korean_units_v1.0.json'),J('./data/social_science_units_v1.0.json'),J('./data/subject_catalog_v1.9.json'),J('./data/grade_guide_v1.2.json'),J('./data/subject_flow_v1.0.json')]).then(function(r){
+ Promise.all([J('./data/math_units_v1.1.json'),J('./data/korean_units_v1.0.json'),J('./data/social_science_units_v1.1.json'),J('./data/subject_catalog_v1.9.json'),J('./data/grade_guide_v1.2.json'),J('./data/subject_flow_v1.0.json')]).then(function(r){
   D={math:r[0],korean:r[1],ss:r[2],catalog:r[3],guide:r[4],flow:r[5]};
   grid.addEventListener('click',function(ev){var b=ev.target.closest('button.cell');if(!b)return;var gs=b.dataset.g.split(',').map(Number);var g=gs.length>1&&window.__selGrade&&gs.indexOf(window.__selGrade)>=0?window.__selGrade:gs[0];open(b.dataset.s,g,true)});
   grid.addEventListener('click',function(ev){var h=ev.target.closest('button.ghead');if(!h)return;var g=Number(h.dataset.grade);window.__selGrade=g;mark(g,'');if(window.uriaiHome)window.uriaiHome.select(g,true)});
