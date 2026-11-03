@@ -1,4 +1,4 @@
-/* 우리아이레벨테스트 메인 v0.7 · 2026-11-03
+/* 우리아이레벨테스트 메인 v0.8 · 2026-11-03
    첫 화면: 초등 6년 학습 지도(학년 카드) → 학년 선택 → 국어·수학·영어 크게, 그 밖의 과목 작게 */
 (function(){'use strict';
  var mapBox=document.getElementById('map'),panel=document.getElementById('grade-panel');
