@@ -1,4 +1,4 @@
-/* 아이레벨테스트 메인 v0.4 · 2026-11-03
+/* 우리아이레벨테스트 메인 v0.5 · 2026-11-03
    첫 화면: 초등 6년 학습 지도(학년 카드) → 학년 선택 → 국어·수학·영어 크게, 그 밖의 과목 작게 */
 (function(){'use strict';
  var mapBox=document.getElementById('map'),panel=document.getElementById('grade-panel');
@@ -75,10 +75,10 @@
   panel.replaceChildren(head,sum,subs,others,cea,basis);
   if(scroll){try{panel.scrollIntoView({behavior:'smooth',block:'start'})}catch(e){panel.scrollIntoView()}h.focus({preventScroll:true})}
  }
- Promise.all([getJSON('./data/grade_guide_v1.0.json'),getJSON('./data/subject_catalog_v1.9.json')]).then(function(r){
+ Promise.all([getJSON('./data/grade_guide_v1.1.json'),getJSON('./data/subject_catalog_v1.9.json')]).then(function(r){
   guide=r[0];catalog=r[1];renderMap();
   var g=Number(new URLSearchParams(location.search).get('grade'));
   if(Number.isInteger(g)&&g>=1&&g<=6)select(g,false);
-  window.aiLevelHome={select:select,getGrade:function(){return current}};
+  window.uriaiHome={select:select,getGrade:function(){return current}};
  }).catch(function(){var p=el('p','err','학습 지도를 불러오지 못했습니다. 잠시 후 새로고침해 주세요.');p.setAttribute('role','alert');mapBox.replaceChildren(p)});
 })();

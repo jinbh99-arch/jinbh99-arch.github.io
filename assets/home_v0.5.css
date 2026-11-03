@@ -1,4 +1,4 @@
-/* 아이레벨테스트 메인 v0.4 · 2026-11-03 */
+/* 우리아이레벨테스트 메인 v0.5 · 2026-11-03 */
 :root{--ink:#17263b;--muted:#516178;--line:#dfe6ef;--bg:#f6f8fb;--card:#fff;--navy:#1c3f7a;--g12:#2f9e6b;--g12-bg:#e8f6ef;--g34:#2f7fd1;--g34-bg:#e8f1fc;--g56:#d9822b;--g56-bg:#fdf1e4;--ai:#6b7280;--official:#344777}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -72,3 +72,17 @@ button{font:inherit;cursor:pointer}
 footer{padding:26px 0 40px;font-size:13px;color:var(--muted)}
 @media(max-width:360px){.gbtn .vis{font-size:20px}.subj .big{font-size:26px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+/* v0.5 추가: 상단 메뉴, 한 줄 소개, 정적 안내, 소개·문의 페이지 */
+.brandwrap{display:flex;flex-direction:column;line-height:1.25;padding:6px 0}
+.tagline{font-size:12px;color:var(--muted)}
+.nav{display:flex;flex-wrap:wrap;gap:2px 12px;font-size:14px}
+.nav a{color:var(--ink);text-decoration:none;min-height:40px;display:inline-flex;align-items:center}
+.nav a[aria-current="page"]{color:var(--navy);font-weight:800}
+.static-list{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.static-list li{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:14px}
+.page{max-width:760px;margin:0 auto;padding:16px}
+.page h1{font-size:24px;margin:16px 0 6px}
+.page section{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;margin:0 0 14px}
+.page h2{font-size:17px;margin:0 0 6px}
+.page p,.page li{line-height:1.7;font-size:15px}
+.mail{font-size:18px;font-weight:800}
