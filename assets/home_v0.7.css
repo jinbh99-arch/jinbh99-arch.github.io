@@ -1,4 +1,4 @@
-/* 우리아이레벨테스트 메인 v0.6 · 2026-11-03 */
+/* 우리아이레벨테스트 메인 v0.7 · 2026-11-03 */
 :root{--ink:#17263b;--muted:#516178;--line:#dfe6ef;--bg:#f6f8fb;--card:#fff;--navy:#1c3f7a;--g12:#2f9e6b;--g12-bg:#e8f6ef;--g34:#2f7fd1;--g34-bg:#e8f1fc;--g56:#d9822b;--g56-bg:#fdf1e4;--ai:#6b7280;--official:#344777}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -111,3 +111,35 @@ footer{padding:26px 0 40px;font-size:13px;color:var(--muted)}
 .overview li{margin:4px 0}
 @media(min-width:820px){.stable th[scope=row]{width:28%}}
 @media(max-width:400px){.stable th[scope=row]{font-size:13px}.stable td{padding:6px 2px}.stable td b{font-size:12px;white-space:nowrap}.stable td small{font-size:10px}}
+
+/* v0.7 추가: 학년별 교과목 이어보기, 수학 개념 이어보기 */
+.legend{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 12px;padding:0;list-style:none}
+.legend li{font-size:12px;border-radius:999px;padding:3px 9px;background:#f3f5f9;border-left:6px solid var(--c)}
+.grow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.gbox{border:1px solid var(--line);border-radius:14px;padding:10px;background:#fbfcfe}
+.gbox.on{border:2px solid var(--navy);box-shadow:0 4px 14px #1c3f7a22}
+.gbox h3{margin:0 0 8px;font-size:16px}
+.gbox ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
+.gbox li{font-size:13px;background:#fff;border:1px solid #e6ebf2;border-left:6px solid var(--c);border-radius:8px;padding:4px 8px}
+.gbox li.new{font-weight:800}
+.change{margin:10px 0;background:#fff8e6;border:1px dashed #e6c36c;border-radius:12px;padding:10px 12px;font-size:14px}
+.change b{display:block;margin-bottom:4px}
+.change ul{margin:0;padding-left:18px}
+@media(min-width:820px){.grow{grid-template-columns:repeat(2,1fr)}.flowrows{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;align-items:start}.flowrows .change{grid-column:auto}}
+.flowlink{display:block;font-size:14px;font-weight:700;color:#174c9d;text-decoration:none;min-height:40px;padding:8px 0}
+/* 수학 개념 지도 */
+.fmap .root{margin:10px 0 14px}
+.dom{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px;margin:0 0 14px}
+.dom>h2{margin:0 0 10px;font-size:18px}
+.thread{margin:0 0 14px}
+.thread h3{font-size:15px;margin:0 0 6px}
+.steps{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;align-items:start;position:relative}
+.steps::before{content:"";position:absolute;left:4%;right:4%;top:14px;border-top:2px dashed #c7d3e3;z-index:0}
+.step{position:relative;z-index:1;min-width:0}
+.step .gb{display:inline-block;background:var(--navy);color:#fff;border-radius:999px;font-size:12px;font-weight:800;padding:3px 9px}
+.step.empty .gb{background:#c9d2de}
+.step ul{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:4px}
+.step li{font-size:12.5px;background:#eef4ff;border-radius:8px;padding:4px 6px;overflow-wrap:anywhere}
+.step.on .gb{background:#d9822b}.step.on li{background:#fdf1e4;font-weight:700}
+@media(max-width:700px){.steps{grid-template-columns:1fr}.steps::before{left:14px;right:auto;top:6px;bottom:6px;border-top:0;border-left:2px dashed #c7d3e3}.step{padding-left:0}.step.empty{display:none}.step ul{flex-direction:row;flex-wrap:wrap;margin-left:44px;margin-top:-22px}}
+.obtn[aria-pressed="true"]{background:#174c9d;color:#fff;border-color:#174c9d}

@@ -1,4 +1,4 @@
-/* 우리아이레벨테스트 메인 v0.6 · 2026-11-03
+/* 우리아이레벨테스트 메인 v0.7 · 2026-11-03
    첫 화면: 초등 6년 학습 지도(학년 카드) → 학년 선택 → 국어·수학·영어 크게, 그 밖의 과목 작게 */
 (function(){'use strict';
  var mapBox=document.getElementById('map'),panel=document.getElementById('grade-panel');
@@ -43,6 +43,7 @@
    ['1','2'].forEach(function(s){d.append(el('p','',s+'학기'));var ol=el('ol');g.math_units[s].forEach(function(u){ol.append(el('li','',u))});d.append(ol)});
    card.append(d);
   }
+  if(key==='math'){var fl=el('a','flowlink','🗺️ 수학 개념이 학년마다 어떻게 이어지는지 보기');fl.href='./flow-math.html?grade='+g.grade;card.append(fl)}
   var why=el('p','why');why.append(el('b','','왜 배우나요? '),document.createTextNode(guide.purpose[key]),tag('ai'));card.append(why);
   var ask=el('p','ask');ask.append(el('b','','아이에게 물어보세요 '),tag('ai'),el('br'),document.createTextNode(q));card.append(ask);
   var a=el('a','go',name+' 자세히 보기 →');a.href=link;card.append(a);
@@ -52,6 +53,7 @@
   var g=guide.grades.filter(function(x){return x.grade===grade})[0];if(!g)return;current=grade;
   [].forEach.call(mapBox.querySelectorAll('.gbtn'),function(b){b.setAttribute('aria-pressed',String(Number(b.dataset.grade)===grade))});
   var band=g.band;[].forEach.call(document.querySelectorAll('#subject-table [data-band]'),function(c){c.classList.toggle('on',c.dataset.band===band)});
+  [].forEach.call(document.querySelectorAll('#subject-flow .gbox'),function(x){x.classList.toggle('on',Number(x.dataset.grade)===grade)});
   var cap=document.getElementById('subject-table-note');if(cap)cap.textContent=grade+'학년은 '+(band==='1-2'?'1~2':band==='3-4'?'3~4':'5~6')+'학년 칸을 보세요.';
   try{history.replaceState(null,'','?grade='+grade)}catch(e){}
   var head=el('div','ghead');var h=el('h2','',grade+'학년에서 배우는 것');h.id='grade-title';h.tabIndex=-1;head.append(h);

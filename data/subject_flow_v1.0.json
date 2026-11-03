@@ -1,0 +1,612 @@
+{
+ "version": "1.0",
+ "built": "2026-11-03",
+ "families": [
+  {
+   "id": "korean",
+   "label": "국어",
+   "icon": "📖",
+   "color": "#2f6fd1"
+  },
+  {
+   "id": "math",
+   "label": "수학",
+   "icon": "🔢",
+   "color": "#1c3f7a"
+  },
+  {
+   "id": "english",
+   "label": "영어",
+   "icon": "🔤",
+   "color": "#0f8a8a"
+  },
+  {
+   "id": "right",
+   "label": "바른 생활 → 도덕",
+   "icon": "🤝",
+   "color": "#2f9e6b"
+  },
+  {
+   "id": "wise",
+   "label": "슬기로운 생활 → 사회·과학",
+   "icon": "🔍",
+   "color": "#7a5af5"
+  },
+  {
+   "id": "joy",
+   "label": "즐거운 생활 → 음악·미술·체육",
+   "icon": "🎵",
+   "color": "#d9822b"
+  },
+  {
+   "id": "prac",
+   "label": "실과",
+   "icon": "🛠️",
+   "color": "#8a6d3b"
+  },
+  {
+   "id": "cea",
+   "label": "창의적 체험활동",
+   "icon": "🎈",
+   "color": "#9b59b6"
+  }
+ ],
+ "boxes": {
+  "1": [
+   {
+    "family": "korean",
+    "name": "국어"
+   },
+   {
+    "family": "math",
+    "name": "수학"
+   },
+   {
+    "family": "right",
+    "name": "바른 생활"
+   },
+   {
+    "family": "wise",
+    "name": "슬기로운 생활"
+   },
+   {
+    "family": "joy",
+    "name": "즐거운 생활"
+   },
+   {
+    "family": "cea",
+    "name": "창의적 체험활동"
+   }
+  ],
+  "2": [
+   {
+    "family": "korean",
+    "name": "국어"
+   },
+   {
+    "family": "math",
+    "name": "수학"
+   },
+   {
+    "family": "right",
+    "name": "바른 생활"
+   },
+   {
+    "family": "wise",
+    "name": "슬기로운 생활"
+   },
+   {
+    "family": "joy",
+    "name": "즐거운 생활"
+   },
+   {
+    "family": "cea",
+    "name": "창의적 체험활동"
+   }
+  ],
+  "3": [
+   {
+    "family": "korean",
+    "name": "국어"
+   },
+   {
+    "family": "math",
+    "name": "수학"
+   },
+   {
+    "family": "english",
+    "name": "영어 (새로 시작)"
+   },
+   {
+    "family": "right",
+    "name": "도덕"
+   },
+   {
+    "family": "wise",
+    "name": "사회"
+   },
+   {
+    "family": "wise",
+    "name": "과학"
+   },
+   {
+    "family": "joy",
+    "name": "체육"
+   },
+   {
+    "family": "joy",
+    "name": "음악"
+   },
+   {
+    "family": "joy",
+    "name": "미술"
+   },
+   {
+    "family": "cea",
+    "name": "창의적 체험활동"
+   }
+  ],
+  "4": [
+   {
+    "family": "korean",
+    "name": "국어"
+   },
+   {
+    "family": "math",
+    "name": "수학"
+   },
+   {
+    "family": "english",
+    "name": "영어"
+   },
+   {
+    "family": "right",
+    "name": "도덕"
+   },
+   {
+    "family": "wise",
+    "name": "사회"
+   },
+   {
+    "family": "wise",
+    "name": "과학"
+   },
+   {
+    "family": "joy",
+    "name": "체육"
+   },
+   {
+    "family": "joy",
+    "name": "음악"
+   },
+   {
+    "family": "joy",
+    "name": "미술"
+   },
+   {
+    "family": "cea",
+    "name": "창의적 체험활동"
+   }
+  ],
+  "5": [
+   {
+    "family": "korean",
+    "name": "국어"
+   },
+   {
+    "family": "math",
+    "name": "수학"
+   },
+   {
+    "family": "english",
+    "name": "영어"
+   },
+   {
+    "family": "right",
+    "name": "도덕"
+   },
+   {
+    "family": "wise",
+    "name": "사회"
+   },
+   {
+    "family": "wise",
+    "name": "과학"
+   },
+   {
+    "family": "joy",
+    "name": "체육"
+   },
+   {
+    "family": "joy",
+    "name": "음악"
+   },
+   {
+    "family": "joy",
+    "name": "미술"
+   },
+   {
+    "family": "prac",
+    "name": "실과 (새로 시작)"
+   },
+   {
+    "family": "cea",
+    "name": "창의적 체험활동"
+   }
+  ],
+  "6": [
+   {
+    "family": "korean",
+    "name": "국어"
+   },
+   {
+    "family": "math",
+    "name": "수학"
+   },
+   {
+    "family": "english",
+    "name": "영어"
+   },
+   {
+    "family": "right",
+    "name": "도덕"
+   },
+   {
+    "family": "wise",
+    "name": "사회"
+   },
+   {
+    "family": "wise",
+    "name": "과학"
+   },
+   {
+    "family": "joy",
+    "name": "체육"
+   },
+   {
+    "family": "joy",
+    "name": "음악"
+   },
+   {
+    "family": "joy",
+    "name": "미술"
+   },
+   {
+    "family": "prac",
+    "name": "실과"
+   },
+   {
+    "family": "cea",
+    "name": "창의적 체험활동"
+   }
+  ]
+ },
+ "changes_at_3": [
+  {
+   "from": "바른 생활",
+   "to": "도덕"
+  },
+  {
+   "from": "슬기로운 생활",
+   "to": "사회 · 과학"
+  },
+  {
+   "from": "즐거운 생활",
+   "to": "음악 · 미술 · 체육"
+  },
+  {
+   "from": "(새로)",
+   "to": "영어"
+  }
+ ],
+ "changes_at_5": [
+  {
+   "from": "(새로)",
+   "to": "실과"
+  }
+ ],
+ "prac_intro": "실과는 요리·옷 같은 가정생활, 동식물 기르기, 생활 속 기술과 코딩 같은 디지털 기술을 배우는 과목이에요(5~6학년).",
+ "link_note": "통합교과(1~2학년)와 3학년 이후 과목의 연결은 내용이 이어지는 일반적인 관계를 보여 주며, 교육과정에 정해진 공식 대응표는 아닙니다. 과목 목록은 2022 개정 교육과정 초등학교 편제(교육부 고시 제2022-33호) 기준입니다.",
+ "math": {
+  "root": "수학",
+  "domains": [
+   "수와 연산",
+   "변화와 관계",
+   "도형과 측정",
+   "자료와 가능성"
+  ],
+  "threads": [
+   {
+    "domain": "수와 연산",
+    "thread": "자연수",
+    "icon": "🔢",
+    "steps": [
+     {
+      "grade": 1,
+      "units": [
+       "9까지의 수",
+       "50까지의 수",
+       "100까지의 수"
+      ]
+     },
+     {
+      "grade": 2,
+      "units": [
+       "세 자리 수",
+       "네 자리 수"
+      ]
+     },
+     {
+      "grade": 4,
+      "units": [
+       "큰 수"
+      ]
+     },
+     {
+      "grade": 5,
+      "units": [
+       "수의 범위와 올림, 버림, 반올림"
+      ]
+     }
+    ]
+   },
+   {
+    "domain": "수와 연산",
+    "thread": "계산",
+    "icon": "➕",
+    "steps": [
+     {
+      "grade": 1,
+      "units": [
+       "덧셈과 뺄셈",
+       "덧셈과 뺄셈(1)",
+       "덧셈과 뺄셈(2)",
+       "덧셈과 뺄셈(3)"
+      ]
+     },
+     {
+      "grade": 2,
+      "units": [
+       "덧셈과 뺄셈",
+       "곱셈",
+       "곱셈 구구"
+      ]
+     },
+     {
+      "grade": 3,
+      "units": [
+       "덧셈과 뺄셈",
+       "나눗셈",
+       "곱셈"
+      ]
+     },
+     {
+      "grade": 4,
+      "units": [
+       "곱셈과 나눗셈"
+      ]
+     },
+     {
+      "grade": 5,
+      "units": [
+       "자연수의 혼합 계산",
+       "약수와 배수"
+      ]
+     }
+    ]
+   },
+   {
+    "domain": "수와 연산",
+    "thread": "분수·소수",
+    "icon": "🍕",
+    "steps": [
+     {
+      "grade": 3,
+      "units": [
+       "분수와 소수",
+       "분수"
+      ]
+     },
+     {
+      "grade": 4,
+      "units": [
+       "분수의 덧셈과 뺄셈",
+       "소수의 덧셈과 뺄셈"
+      ]
+     },
+     {
+      "grade": 5,
+      "units": [
+       "약분과 통분",
+       "분수의 덧셈과 뺄셈",
+       "분수의 곱셈",
+       "소수의 곱셈"
+      ]
+     },
+     {
+      "grade": 6,
+      "units": [
+       "분수의 나눗셈",
+       "소수의 나눗셈"
+      ]
+     }
+    ]
+   },
+   {
+    "domain": "변화와 관계",
+    "thread": "규칙과 관계",
+    "icon": "🔁",
+    "steps": [
+     {
+      "grade": 1,
+      "units": [
+       "규칙 찾기"
+      ]
+     },
+     {
+      "grade": 2,
+      "units": [
+       "규칙 찾기"
+      ]
+     },
+     {
+      "grade": 4,
+      "units": [
+       "규칙 찾기"
+      ]
+     },
+     {
+      "grade": 5,
+      "units": [
+       "대응 관계"
+      ]
+     },
+     {
+      "grade": 6,
+      "units": [
+       "비와 비율",
+       "비례식과 비례배분"
+      ]
+     }
+    ]
+   },
+   {
+    "domain": "도형과 측정",
+    "thread": "도형",
+    "icon": "🔺",
+    "steps": [
+     {
+      "grade": 1,
+      "units": [
+       "여러 가지 모양"
+      ]
+     },
+     {
+      "grade": 2,
+      "units": [
+       "여러 가지 도형"
+      ]
+     },
+     {
+      "grade": 3,
+      "units": [
+       "평면도형",
+       "원"
+      ]
+     },
+     {
+      "grade": 4,
+      "units": [
+       "평면도형의 이동",
+       "삼각형",
+       "사각형",
+       "다각형"
+      ]
+     },
+     {
+      "grade": 5,
+      "units": [
+       "합동과 대칭",
+       "직육면체와 정육면체"
+      ]
+     },
+     {
+      "grade": 6,
+      "units": [
+       "각기둥과 각뿔",
+       "공간과 입체",
+       "원기둥, 원뿔, 구"
+      ]
+     }
+    ]
+   },
+   {
+    "domain": "도형과 측정",
+    "thread": "측정",
+    "icon": "📏",
+    "steps": [
+     {
+      "grade": 1,
+      "units": [
+       "비교하기",
+       "모양과 시각"
+      ]
+     },
+     {
+      "grade": 2,
+      "units": [
+       "길이 재기",
+       "시각과 시간"
+      ]
+     },
+     {
+      "grade": 3,
+      "units": [
+       "길이와 시간",
+       "들이와 무게"
+      ]
+     },
+     {
+      "grade": 4,
+      "units": [
+       "각도"
+      ]
+     },
+     {
+      "grade": 5,
+      "units": [
+       "다각형의 둘레와 넓이"
+      ]
+     },
+     {
+      "grade": 6,
+      "units": [
+       "직육면체의 겉넓이와 부피",
+       "원의 둘레와 넓이"
+      ]
+     }
+    ]
+   },
+   {
+    "domain": "자료와 가능성",
+    "thread": "자료와 그래프",
+    "icon": "📊",
+    "steps": [
+     {
+      "grade": 2,
+      "units": [
+       "분류하기",
+       "표와 그래프"
+      ]
+     },
+     {
+      "grade": 3,
+      "units": [
+       "그림그래프"
+      ]
+     },
+     {
+      "grade": 4,
+      "units": [
+       "막대그래프",
+       "꺾은선그래프"
+      ]
+     },
+     {
+      "grade": 5,
+      "units": [
+       "평균과 가능성"
+      ]
+     },
+     {
+      "grade": 6,
+      "units": [
+       "여러 가지 그래프"
+      ]
+     }
+    ]
+   }
+  ],
+  "note": "영역 4개(수와 연산·변화와 관계·도형과 측정·자료와 가능성)는 2022 개정 수학과 교육과정의 공식 영역입니다. 그 아래 갈래(자연수·계산 등)는 이해를 돕기 위한 AI 분류이고, 단원과 학년은 경기도교육청 학년·학기별 단원 연결표 기준입니다."
+ }
+}
