@@ -1,4 +1,4 @@
-/* 우리아이레벨테스트 v0.19 · 2026-11-04 (v0.16 점검 화면 기준 + 과학 점검·과학 개념 연결)
+/* 우리아이레벨테스트 v0.21 · 2026-11-04 (v0.19 기준: 과학 점검 자료 v1.1)
    첫 화면: 과목(수학·국어·영어·과학)과 학년을 고르면 '꼭 할 수 있어야 하는 것'을 하나씩 확인하고, 막힌 곳은 이전 학년 단원으로 안내한다.
    확인 결과는 이 브라우저에만 잠시 저장한다(서버 전송 없음). */
 (function(){'use strict';
@@ -60,7 +60,7 @@
   if(cur&&keep)pick(cur,false);else{try{history.replaceState(null,'',s==='math'?location.pathname:'?subject='+s)}catch(e){}}}
  function pick(g,scroll){cur=g;state=load(g);[].forEach.call(gbox.querySelectorAll('button'),function(b){b.setAttribute('aria-pressed',String(Number(b.dataset.grade)===g))});
   try{history.replaceState(null,'',(subj==='math'?'?':'?subject='+subj+'&')+'grade='+g)}catch(e){}render();if(scroll){try{head.scrollIntoView({behavior:'smooth',block:'start'})}catch(e){head.scrollIntoView()}}}
- Promise.all([J('./data/math_checks_v1.1.json'),J('./data/korean_checks_v1.0.json'),J('./data/english_checks_v1.0.json'),J('./data/science_checks_v1.0.json')]).then(function(r){DD={math:r[0],korean:r[1],english:r[2],science:r[3]};
+ Promise.all([J('./data/math_checks_v1.1.json'),J('./data/korean_checks_v1.0.json'),J('./data/english_checks_v1.0.json'),J('./data/science_checks_v1.1.json')]).then(function(r){DD={math:r[0],korean:r[1],english:r[2],science:r[3]};
   [].forEach.call(gbox.querySelectorAll('button'),function(b){b.addEventListener('click',function(){pick(Number(b.dataset.grade),true)})});
   [].forEach.call(sbox.querySelectorAll('button'),function(b){b.addEventListener('click',function(){setSubj(b.dataset.subject,true)})});
   var qs=Q0.get('subject');setSubj(qs==='korean'||qs==='english'||qs==='science'?qs:'math',false);

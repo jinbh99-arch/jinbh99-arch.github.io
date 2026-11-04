@@ -1,4 +1,4 @@
-/* 우리아이레벨테스트 교재 찾기 v0.19 · 2026-11-04 (v0.14 기준: 과학 결과에도 그 학년 점검 연결) — 결과마다 단원 설명과 그 학년 점검으로 연결 */
+/* 우리아이레벨테스트 교재 찾기 v0.21 · 2026-11-04 (v0.19 기준: 찾기 색인 v1.2) — 결과마다 단원 설명과 그 학년 점검으로 연결 */
 (function(){'use strict';
  var Q0=new URLSearchParams(location.search);
  function el(t,c,x){var n=document.createElement(t);if(c)n.className=c;if(x!==undefined)n.textContent=String(x);return n}
@@ -14,7 +14,7 @@
  if(fi){var tm;fi.addEventListener('input',function(){clearTimeout(tm);tm=setTimeout(function(){find(fi.value)},120)});
   [].forEach.call(document.querySelectorAll('.fchip'),function(b){b.addEventListener('click',function(){fi.value=b.textContent;find(fi.value);fi.focus()})})}
 
- fetch('./data/find_index_v1.1.json',{cache:'no-cache'}).then(function(r){if(!r.ok)throw Error();return r.json()}).then(function(d){F=d;var q=Q0.get('q');if(q&&fi&&q.length<30){fi.value=q;find(q)}})
+ fetch('./data/find_index_v1.2.json',{cache:'no-cache'}).then(function(r){if(!r.ok)throw Error();return r.json()}).then(function(d){F=d;var q=Q0.get('q');if(q&&fi&&q.length<30){fi.value=q;find(q)}})
   .catch(function(){var p=el('p','err','찾기 자료를 불러오지 못했습니다. 잠시 후 새로고침해 주세요.');p.setAttribute('role','alert');fr.replaceChildren(p)});
  window.uriaiFind={find:function(q){find(q)}};
 })();
