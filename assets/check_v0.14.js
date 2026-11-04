@@ -1,4 +1,4 @@
-/* 우리아이레벨테스트 v0.13 · 2026-11-04 (v0.12 점검 화면 기준, 카드 설명 그림 추가)
+/* 우리아이레벨테스트 v0.14 · 2026-11-04 (v0.13 점검 화면 기준: 카드 접기, 목록 끝 연결, 개념 연결 바로가기. 교재 찾기는 find_v0.14.js로 분리)
    첫 화면: 과목(수학·국어·영어)과 학년을 고르면 '꼭 할 수 있어야 하는 것'을 하나씩 확인하고, 막힌 곳은 이전 학년 단원으로 안내한다.
    확인 결과는 이 브라우저에만 잠시 저장한다(서버 전송 없음). */
 (function(){'use strict';
@@ -17,10 +17,12 @@
   var top=el('div','ck-top');top.append(el('span','ck-n',n),el('span','ck-tag',it.tag||(it.semester+'학기 · '+it.unit)));c.append(top);
   c.append(el('h3','ck-can',it.can_do));
   var q=el('div','ck-q');q.append(el('b','','아이에게 물어보세요'),el('p','',it.question));
-  var AL=D.labels.answer||'정답';var ab=el('button','ck-ans-btn',AL+' 보기');ab.type='button';ab.setAttribute('aria-expanded','false');var ans=el('p','ck-ans',AL+': '+it.answer);ans.hidden=true;ans.id='ans-'+it.id;ab.setAttribute('aria-controls',ans.id);
-  ab.addEventListener('click',function(){ans.hidden=!ans.hidden;ab.setAttribute('aria-expanded',String(!ans.hidden));ab.textContent=AL+(ans.hidden?' 보기':' 숨기기')});
-  var IL=window.URIAI_ILL||{};if(IL[it.id]){var fg=el('figure','ck-fig');fg.innerHTML=IL[it.id];fg.append(el('figcaption','','그림을 보여 주며 물어봐도 좋아요'));q.append(fg)}
-  q.append(ab,ans);c.append(q);
+  var AL=D.labels.answer||'정답';var IL=window.URIAI_ILL||{};var BL=AL+(IL[it.id]?'·그림':'');var ab=el('button','ck-ans-btn',BL+' 보기');ab.type='button';ab.setAttribute('aria-expanded','false');
+  var box=el('div','ck-more');box.hidden=true;box.id='more-'+it.id;ab.setAttribute('aria-controls',box.id);
+  if(IL[it.id]){var fg=el('figure','ck-fig');fg.innerHTML=IL[it.id];fg.append(el('figcaption','','그림을 보여 주며 물어봐도 좋아요'));box.append(fg)}
+  var ans=el('p','ck-ans',AL+': '+it.answer);box.append(ans);
+  ab.addEventListener('click',function(){box.hidden=!box.hidden;ab.setAttribute('aria-expanded',String(!box.hidden));ab.textContent=BL+(box.hidden?' 보기':' 숨기기')});
+  q.append(ab,box);c.append(q);
   var btns=el('div','ck-lv');btns.setAttribute('role','group');btns.setAttribute('aria-label','아이가 어땠나요?');
   LV.forEach(function(l){var b=el('button','lv lv-'+l[0]);b.type='button';b.dataset.lv=l[0];b.append(el('span','',l[2]+' '),document.createTextNode(l[1]));b.setAttribute('aria-pressed',String(state[it.id]===l[0]));
    b.addEventListener('click',function(){state[it.id]=state[it.id]===l[0]?undefined:l[0];if(!state[it.id])delete state[it.id];save(cur);paint(c,it);summary()});btns.append(b)});
@@ -29,6 +31,7 @@
   var p=it.prereq;var hp=el('p','');hp.append(el('b','','막혔다면 · '),document.createTextNode(p.label?(p.grade+'학년 「'+p.label+'」부터 확인해요. '+p.tip):(p.grade+'학년 '+p.semester+'학기 「'+p.unit+'」부터 확인해요. '+p.tip)));help.append(hp);
   var hm=el('p','');hm.append(el('b','','집에서 5분 · '),document.createTextNode(it.home));help.append(hm);
   var lk=el('a','more',p.link_text||('「'+p.unit+'」 단원 설명 보기 →'));lk.href=p.href||('./curriculum.html?grade='+p.grade+'&subject='+subj);help.append(lk);
+  if(subj==='math'){var ck=el('a','more cg-link','🌳 이 단원 앞에 알아야 할 것 모두 보기 →');ck.href='./concept-math.html?k='+encodeURIComponent(it.grade+'-'+it.semester+' '+it.unit);help.append(ck)}
   c.append(help);
   var std=el('details','ck-std');std.append(el('summary','','근거: 관련 성취기준 '+it.standards.length+'개'));var ul=el('ul');it.standards.forEach(function(s){var li=el('li');li.append(el('b','',s.code+' '),document.createTextNode(s.text));ul.append(li)});std.append(ul);c.append(std);
   paint(c,it);return c}
@@ -45,29 +48,22 @@
   var rs=el('button','linkbtn','이 학년 확인 기록 지우기');rs.type='button';rs.addEventListener('click',function(){state={};save(cur);render()});sum.append(rs);
  }
  function render(){var L=items(cur);if(!L.length){head.replaceChildren(el('h2','',cur+'학년 '+SN[subj]),el('p','lead',SN[subj]+'는 학교에서 '+(D.grades?D.grades[0]:3)+'학년부터 배워요. 위에서 다른 학년이나 과목을 골라 주세요.'));list.replaceChildren();sum.hidden=true;return}
-  head.replaceChildren(el('h2','',cur+'학년 '+SN[subj]+', 이것만은 할 수 있어야 해요'),el('p','lead','항목 '+L.length+'개 · 질문은 아이에게 말로 물어보면 돼요. 시험이 아니라 대화로 확인하는 거예요.'+(D.labels.answer_note?' '+D.labels.answer_note:'')));var gl=el('a','more guide-link','📘 '+cur+'학년 1년 학습 안내 글 읽기 →');gl.href='./guide-'+cur+'.html';head.append(gl);
-  list.replaceChildren.apply(list,L.map(function(it,i){return card(it,i+1)}));summary()}
+  head.replaceChildren(el('h2','',cur+'학년 '+SN[subj]+', 이것만은 할 수 있어야 해요'),el('p','lead','항목 '+L.length+'개 · 질문은 아이에게 말로 물어보면 돼요. 시험이 아니라 대화로 확인하는 거예요.'+(D.labels.answer_note?' '+D.labels.answer_note:'')));
+  list.replaceChildren.apply(list,L.map(function(it,i){return card(it,i+1)}));
+  var end=el('nav','ck-end');end.setAttribute('aria-label','다음에 볼 것');var gl=el('a','more guide-link','📘 '+cur+'학년 1년 학습 안내 글 읽기 →');gl.href='./guide-'+cur+'.html';end.append(gl);
+  if(cur<6&&items(cur+1).length){var nb=el('button','linkbtn next-grade','➡️ '+(cur+1)+'학년 '+SN[subj]+' 미리 보기 →');nb.type='button';nb.addEventListener('click',function(){pick(cur+1,true)});end.append(nb)}
+  var fd=el('a','more','🔎 교재에 나온 내용으로 학년 찾기 →');fd.href='./find.html';end.append(fd);list.append(end);summary()}
  function counts(){[].forEach.call(gbox.querySelectorAll('button'),function(b){var s=b.querySelector('small'),n=items(Number(b.dataset.grade)).length;if(s)s.textContent=n?n+'개 확인':(D.grades?D.grades[0]:3)+'학년부터';b.classList.toggle('none',!n)})}
  function setSubj(s,keep){if(!DD[s])return;subj=s;D=DD[s];[].forEach.call(sbox.querySelectorAll('button'),function(b){b.setAttribute('aria-pressed',String(b.dataset.subject===s))});counts();
   var t=document.getElementById('hero-subj');if(t)t.textContent=SN[s];
   if(cur&&keep)pick(cur,false);else{try{history.replaceState(null,'',s==='math'?location.pathname:'?subject='+s)}catch(e){}}}
  function pick(g,scroll){cur=g;state=load(g);[].forEach.call(gbox.querySelectorAll('button'),function(b){b.setAttribute('aria-pressed',String(Number(b.dataset.grade)===g))});
   try{history.replaceState(null,'',(subj==='math'?'?':'?subject='+subj+'&')+'grade='+g)}catch(e){}render();if(scroll){try{head.scrollIntoView({behavior:'smooth',block:'start'})}catch(e){head.scrollIntoView()}}}
- // 교재 내용으로 학년 찾기
- var fi=document.getElementById('find-input'),fr=document.getElementById('find-result'),F=null;
- function norm(s){return String(s).toLowerCase().replace(/\s+/g,'')}
- function find(q){var n=norm(q);if(!n||!F){fr.replaceChildren();return}
-  var R=F.entries.map(function(e){var sc=0;if(norm(e.u).indexOf(n)>=0)sc=3;else if(e.k.some(function(k){return norm(k).indexOf(n)>=0||n.indexOf(norm(k))>=0&&norm(k).length>=2}))sc=2;else if(norm(e.t).indexOf(n)>=0)sc=1;return [sc,e]}).filter(function(x){return x[0]>0}).sort(function(a,b){return b[0]-a[0]||(a[1].sid==='math'?-1:0)-(b[1].sid==='math'?-1:0)||a[1].g-b[1].g||a[1].m-b[1].m}).slice(0,8);
-  fr.replaceChildren();var st=el('p','muted',R.length?('“'+q+'” 관련 단원 '+R.length+'개'+(R.length===8?' (상위 8개)':'')):('“'+q+'”와 맞는 단원을 찾지 못했어요. 다른 말로 찾아보세요.'));st.setAttribute('role','status');fr.append(st);
-  R.forEach(function(x){var e=x[1];var a=el('a','fitem');a.href='./curriculum.html?grade='+e.g+'&subject='+e.sid;a.append(el('span','fg',e.g+'학년 '+e.m+'학기'),el('b','',e.s+' · '+e.u),el('span','ft',e.t));fr.append(a)})}
- if(fi){var tm;fi.addEventListener('input',function(){clearTimeout(tm);tm=setTimeout(function(){find(fi.value)},120)});
-  [].forEach.call(document.querySelectorAll('.fchip'),function(b){b.addEventListener('click',function(){fi.value=b.textContent;find(fi.value);fi.focus()})})}
- Promise.all([J('./data/math_checks_v1.1.json'),J('./data/korean_checks_v1.0.json'),J('./data/english_checks_v1.0.json'),J('./data/find_index_v1.1.json')]).then(function(r){DD={math:r[0],korean:r[1],english:r[2]};F=r[3];
+ Promise.all([J('./data/math_checks_v1.1.json'),J('./data/korean_checks_v1.0.json'),J('./data/english_checks_v1.0.json')]).then(function(r){DD={math:r[0],korean:r[1],english:r[2]};
   [].forEach.call(gbox.querySelectorAll('button'),function(b){b.addEventListener('click',function(){pick(Number(b.dataset.grade),true)})});
   [].forEach.call(sbox.querySelectorAll('button'),function(b){b.addEventListener('click',function(){setSubj(b.dataset.subject,true)})});
   var qs=Q0.get('subject');setSubj(qs==='korean'||qs==='english'?qs:'math',false);
   var g=Number(Q0.get('grade'));if(Number.isInteger(g)&&g>=1&&g<=6)pick(g,false);
-  var fq=Q0.get('find');if(fq&&fi&&fq.length<30){fi.value=fq;find(fq)}
-  window.uriaiCheck={pick:pick,find:find,subject:setSubj};
+  window.uriaiCheck={pick:pick,subject:setSubj};
  }).catch(function(){var p=el('p','err','점검 항목을 불러오지 못했습니다. 잠시 후 새로고침해 주세요.');p.setAttribute('role','alert');list.replaceChildren(p)});
 })();
