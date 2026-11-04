@@ -1,4 +1,4 @@
-/* 우리아이레벨테스트 v0.14 · 2026-11-04 (v0.13 점검 화면 기준: 카드 접기, 목록 끝 연결, 개념 연결 바로가기. 교재 찾기는 find_v0.14.js로 분리)
+/* 우리아이레벨테스트 v0.16 · 2026-11-04 (v0.14 점검 화면 기준 + 카드마다 오류 알리기)
    첫 화면: 과목(수학·국어·영어)과 학년을 고르면 '꼭 할 수 있어야 하는 것'을 하나씩 확인하고, 막힌 곳은 이전 학년 단원으로 안내한다.
    확인 결과는 이 브라우저에만 잠시 저장한다(서버 전송 없음). */
 (function(){'use strict';
@@ -34,6 +34,7 @@
   if(subj==='math'){var ck=el('a','more cg-link','🌳 이 단원 앞에 알아야 할 것 모두 보기 →');ck.href='./concept-math.html?k='+encodeURIComponent(it.grade+'-'+it.semester+' '+it.unit);help.append(ck)}
   c.append(help);
   var std=el('details','ck-std');std.append(el('summary','','근거: 관련 성취기준 '+it.standards.length+'개'));var ul=el('ul');it.standards.forEach(function(s){var li=el('li');li.append(el('b','',s.code+' '),document.createTextNode(s.text));ul.append(li)});std.append(ul);c.append(std);
+  var er=el('a','ck-err','이 문항 오류 알리기');er.href='mailto:uriailevel@gmail.com?subject='+encodeURIComponent('[오류 알림] '+it.id+' '+it.can_do)+'&body='+encodeURIComponent('문항: '+it.id+' ('+(it.tag||(it.grade+'학년 '+it.semester+'학기 · '+it.unit))+')\n질문: '+it.question+'\n\n어떤 점이 틀렸거나 어색한지 적어 주세요:\n');c.append(er);
   paint(c,it);return c}
  function paint(c,it){var v=state[it.id];[].forEach.call(c.querySelectorAll('.lv'),function(b){b.setAttribute('aria-pressed',String(b.dataset.lv===v))});c.dataset.lv=v||'';c.querySelector('.ck-help').hidden=!(v==='unsure'||v==='no')}
  function summary(){
