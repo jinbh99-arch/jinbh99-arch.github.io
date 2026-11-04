@@ -1,4 +1,4 @@
-/* 우리아이레벨테스트 공통 스타일 v0.17 · 2026-11-04 */
+/* 우리아이레벨테스트 공통 스타일 v0.18 · 2026-11-04 */
 :root{--ink:#17263b;--muted:#516178;--line:#dfe6ef;--bg:#f6f8fb;--card:#fff;--navy:#1c3f7a;--g12:#2f9e6b;--g12-bg:#e8f6ef;--g34:#2f7fd1;--g34-bg:#e8f1fc;--g56:#d9822b;--g56-bg:#fdf1e4;--ai:#6b7280;--official:#344777}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -388,3 +388,10 @@ footer{background:#F2F4F6;color:#6B7684}
 .tree-txt li{margin:6px 0;font-size:15px}.tree-txt li small{color:var(--muted)}
 .art .src-table td a{font-weight:600}
 .wl{padding-left:18px}.wl li{margin:8px 0}.wl small{color:var(--muted)}
+/* v0.18: 주제 글 교과 비교 */
+.art .cmp2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.art .cmp2 .box{margin:0}
+.art .cmp2 ul{margin:6px 0 0;padding-left:18px}
+.art .cmp2 .new{display:inline-block;font-size:11px;font-weight:700;color:#1d4ed8;background:#e8efff;border-radius:999px;padding:1px 7px;margin-left:4px}
+.art details.std h3{font-size:14px;margin:10px 0 4px}
+@media (max-width:360px){.art .cmp2{grid-template-columns:1fr}}
