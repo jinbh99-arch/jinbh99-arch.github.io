@@ -1,4 +1,4 @@
-/* 우리아이레벨테스트 v0.21 · 2026-11-04 (v0.19 기준: 과학 점검 자료 v1.1)
+/* 우리아이레벨테스트 v0.22 · 2026-11-04 (v0.21 기준: 학기·단원 출처와 학년군 안내, 막혔다면 'AI 추천' 표시)
    첫 화면: 과목(수학·국어·영어·과학)과 학년을 고르면 '꼭 할 수 있어야 하는 것'을 하나씩 확인하고, 막힌 곳은 이전 학년 단원으로 안내한다.
    확인 결과는 이 브라우저에만 잠시 저장한다(서버 전송 없음). */
 (function(){'use strict';
@@ -12,6 +12,7 @@
  function save(g){try{localStorage.setItem(key(g),JSON.stringify(state))}catch(e){}}
  function J(u){return fetch(u,{cache:'no-cache'}).then(function(r){if(!r.ok)throw Error(u);return r.json()})}
  function items(g){return D.items.filter(function(x){return x.grade===g})}
+ function band(g){return g<=2?'1~2':g<=4?'3~4':'5~6'}
  function card(it,n){
   var c=el('article','ck');c.id='ck-'+it.id;c.dataset.id=it.id;
   var top=el('div','ck-top');top.append(el('span','ck-n',n),el('span','ck-tag',it.tag||(it.semester+'학기 · '+it.unit)));c.append(top);
@@ -28,12 +29,12 @@
    b.addEventListener('click',function(){state[it.id]=state[it.id]===l[0]?undefined:l[0];if(!state[it.id])delete state[it.id];save(cur);paint(c,it);summary()});btns.append(b)});
   c.append(btns);
   var help=el('div','ck-help');help.hidden=true;
-  var p=it.prereq;var hp=el('p','');hp.append(el('b','','막혔다면 · '),document.createTextNode(p.label?(p.grade+'학년 「'+p.label+'」부터 확인해요. '+p.tip):p.same_unit?('「'+p.unit+'」 단원 설명을 함께 보며 확인해요. '+p.tip):(p.grade+'학년 '+p.semester+'학기 「'+p.unit+'」부터 확인해요. '+p.tip)));help.append(hp);
+  var p=it.prereq;var hp=el('p','');hp.append(el('b','','막혔다면 · '),el('span','ck-ai','AI 추천'),document.createTextNode(' '),document.createTextNode(p.label?(p.grade+'학년 「'+p.label+'」부터 확인해요. '+p.tip):p.same_unit?('「'+p.unit+'」 단원 설명을 함께 보며 확인해요. '+p.tip):(p.grade+'학년 '+p.semester+'학기 「'+p.unit+'」부터 확인해요. '+p.tip)));help.append(hp);
   var hm=el('p','');hm.append(el('b','','집에서 5분 · '),document.createTextNode(it.home));help.append(hm);
   var lk=el('a','more',p.link_text||('「'+p.unit+'」 단원 설명 보기 →'));lk.href=p.href||('./curriculum.html?grade='+p.grade+'&subject='+subj);help.append(lk);
   if(subj==='math'||subj==='science'){var ck=el('a','more cg-link','🌳 이 단원 앞에 알아야 할 것 모두 보기 →');ck.href='./concept-'+subj+'.html?k='+encodeURIComponent(it.grade+'-'+it.semester+' '+it.unit);help.append(ck)}
   c.append(help);
-  var std=el('details','ck-std');std.append(el('summary','','근거: 관련 성취기준 '+it.standards.length+'개'));var ul=el('ul');it.standards.forEach(function(s){var li=el('li');li.append(el('b','',s.code+' '),document.createTextNode(s.text));ul.append(li)});std.append(ul);c.append(std);
+  var std=el('details','ck-std');std.append(el('summary','','근거: 교육부 '+band(it.grade)+'학년군 성취기준 '+it.standards.length+'개'));var ul=el('ul');it.standards.forEach(function(s){var li=el('li');li.append(el('b','',s.code+' '),document.createTextNode(s.text));ul.append(li)});std.append(ul);c.append(std);
   var er=el('a','ck-err','이 문항 오류 알리기');er.href='mailto:uriailevel@gmail.com?subject='+encodeURIComponent('[오류 알림] '+it.id+' '+it.can_do)+'&body='+encodeURIComponent('문항: '+it.id+' ('+(it.tag||(it.grade+'학년 '+it.semester+'학기 · '+it.unit))+')\n질문: '+it.question+'\n\n어떤 점이 틀렸거나 어색한지 적어 주세요:\n');c.append(er);
   paint(c,it);return c}
  function paint(c,it){var v=state[it.id];[].forEach.call(c.querySelectorAll('.lv'),function(b){b.setAttribute('aria-pressed',String(b.dataset.lv===v))});c.dataset.lv=v||'';c.querySelector('.ck-help').hidden=!(v==='unsure'||v==='no')}
@@ -49,7 +50,8 @@
   var rs=el('button','linkbtn','이 학년 확인 기록 지우기');rs.type='button';rs.addEventListener('click',function(){state={};save(cur);render()});sum.append(rs);
  }
  function render(){var L=items(cur);if(!L.length){head.replaceChildren(el('h2','',cur+'학년 '+SN[subj]),el('p','lead',SN[subj]+EN[subj]+' 학교에서 '+(D.grades?D.grades[0]:3)+'학년부터 배워요. 위에서 다른 학년이나 과목을 골라 주세요.'));list.replaceChildren();sum.hidden=true;return}
-  head.replaceChildren(el('h2','',cur+'학년 '+SN[subj]+', 이것만은 할 수 있어야 해요'),el('p','lead','항목 '+L.length+'개 · 질문은 아이에게 말로 물어보면 돼요. 시험이 아니라 대화로 확인하는 거예요.'+(D.labels.answer_note?' '+D.labels.answer_note:'')));
+  var bs=el('p','ck-basis',subj==='english'?('영어 성취기준은 '+band(cur)+'학년군(2년 묶음)으로만 정해져 있어요. 학년별로 나눈 것은 AI가 정한 예시예요.'):('학기·단원은 경기도교육청 성취기준·단원 연결표 기준이라 학교·교과서마다 다를 수 있어요. 교육부 성취기준은 '+band(cur)+'학년군(2년 묶음)으로 정해져 있어요.'));
+  head.replaceChildren(el('h2','',cur+'학년 '+SN[subj]+', 이것만은 할 수 있어야 해요'),bs,el('p','lead','항목 '+L.length+'개 · 질문은 아이에게 말로 물어보면 돼요. 시험이 아니라 대화로 확인하는 거예요.'+(D.labels.answer_note?' '+D.labels.answer_note:'')));
   list.replaceChildren.apply(list,L.map(function(it,i){return card(it,i+1)}));
   var end=el('nav','ck-end');end.setAttribute('aria-label','다음에 볼 것');var gl=el('a','more guide-link','📘 '+cur+'학년 1년 학습 안내 글 읽기 →');gl.href='./guide-'+cur+'.html';end.append(gl);
   if(cur<6&&items(cur+1).length){var nb=el('button','linkbtn next-grade','➡️ '+(cur+1)+'학년 '+SN[subj]+' 미리 보기 →');nb.type='button';nb.addEventListener('click',function(){pick(cur+1,true)});end.append(nb)}

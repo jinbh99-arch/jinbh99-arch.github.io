@@ -1,4 +1,4 @@
-/* 우리아이레벨테스트 수학 개념 연결 v0.14 · 2026-11-04 (수학 개념 연결 v1.0 자료 사용) — 단원을 고르면 먼저 알아야 할 단원을 나무 모양으로 보여 준다. */
+/* 우리아이레벨테스트 수학 개념 연결 v0.22 · 2026-11-04 (v0.14 기준: 없는 단원 주소면 안내) — 단원을 고르면 먼저 알아야 할 단원을 나무 모양으로 보여 준다. */
 (function(){'use strict';
 var D,N={},PRE={},NEXT={};var pick=document.getElementById('cg-pick'),tree=document.getElementById('cg-tree'),nx=document.getElementById('cg-next');
 function el(t,c,x){var n=document.createElement(t);if(c)n.className=c;if(x!==undefined)n.textContent=String(x);return n}
@@ -13,4 +13,4 @@ function show(id){var ul=el('ul');ul.append(build(id,0,2,{},null,true));tree.rep
 fetch('./data/math_graph_v1.0.json').then(function(r){return r.json()}).then(function(d){D=d;d.nodes.forEach(function(n){N[n.id]=n;var o=el('option','',n.grade+'학년 '+n.semester+'학기 · '+n.unit);o.value=n.id;pick.append(o)});
  d.edges.forEach(function(e){(PRE[e.to]=PRE[e.to]||[]).push(e);(NEXT[e.from]=NEXT[e.from]||[]).push(e)});
  document.querySelector('.cg-note').textContent=d.note;pick.addEventListener('change',function(){show(pick.value)});
- var qs=new URLSearchParams(location.search),q=qs.get('u'),k=qs.get('k');var byk=d.nodes.filter(function(n){return n.key===k})[0];if(byk)q=byk.id;var start=N[q]?q:d.nodes.filter(function(n){return n.grade===5&&n.semester===1&&n.unit==='분수의 덧셈과 뺄셈'})[0].id;pick.value=start;show(start)})})();
+ var qs=new URLSearchParams(location.search),q=qs.get('u'),k=qs.get('k');var byk=d.nodes.filter(function(n){return n.key===k})[0];if(byk)q=byk.id;var start=N[q]?q:d.nodes.filter(function(n){return n.grade===5&&n.semester===1&&n.unit==='분수의 덧셈과 뺄셈'})[0].id;pick.value=start;show(start);if((k&&!byk)||(qs.get('u')&&!N[qs.get('u')])){var mm=el('p','cg-miss','찾는 단원이 목록에 없어 예시 단원을 보여 드려요. 위에서 단원을 골라 주세요.');mm.setAttribute('role','status');tree.prepend(mm)}})})();

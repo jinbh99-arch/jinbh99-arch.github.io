@@ -1,4 +1,4 @@
-/* 우리아이레벨테스트 공통 스타일 v0.19 · 2026-11-04 */
+/* 우리아이레벨테스트 공통 스타일 v0.22 · 2026-11-04 (v0.19 기준: 점검 출처 안내·AI 추천 표시·개념 연결 AI 안내·404·학습지도 빈 결과) */
 :root{--ink:#17263b;--muted:#516178;--line:#dfe6ef;--bg:#f6f8fb;--card:#fff;--navy:#1c3f7a;--g12:#2f9e6b;--g12-bg:#e8f6ef;--g34:#2f7fd1;--g34-bg:#e8f1fc;--g56:#d9822b;--g56-bg:#fdf1e4;--ai:#6b7280;--official:#344777}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -399,3 +399,10 @@ footer{background:#F2F4F6;color:#6B7684}
 .spick{grid-template-columns:repeat(4,1fr)}
 .si-science{background:#E6FCF5;color:#0C8599}
 @media (max-width:420px){.spick{grid-template-columns:repeat(2,1fr)}}
+/* v0.22 */
+.ck-basis{font-size:13px;color:var(--muted);background:#F8FAFC;border:1px solid var(--line);border-radius:12px;padding:8px 12px;margin:8px 0 0}
+.ck-ai{display:inline-block;font-size:11px;font-weight:700;border-radius:6px;padding:1px 6px;background:#F2F4F6;color:#6B7684;vertical-align:1px}
+.cg-ai{font-size:13px;background:#FFF8E6;border:1px solid #F3D9A4;border-radius:12px;padding:10px 12px;margin:10px 0}
+.cg-miss{font-size:14px;background:#FFF0F0;border:1px solid #F5C2C2;border-radius:12px;padding:10px 12px;margin:0 0 10px}
+.nf{text-align:center;padding:24px 0}.nf ul{list-style:none;padding:0;display:grid;gap:8px;max-width:360px;margin:16px auto 0}
+.nf a{display:block;border:1.5px solid var(--line);border-radius:14px;padding:12px;font-weight:700;text-decoration:none}
