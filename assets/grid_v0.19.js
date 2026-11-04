@@ -1,4 +1,4 @@
-/* 우리아이레벨테스트 v0.18 · 2026-11-04 (v0.16 기준: 사회·과학 자료 v1.2 사용. 칸 설명에서 점검·학년 안내·수학 개념 연결로 이어짐)
+/* 우리아이레벨테스트 v0.19 · 2026-11-04 (v0.18 기준: 과학 점검·과학 개념 연결 추가. 사회·과학 자료 v1.2 사용. 칸 설명에서 점검·학년 안내·수학 개념 연결로 이어짐)
    첫 화면 학년×과목 표: 칸을 누르면 그 과목·학년의 단원, 쉬운 설명, 관련 성취기준을 펼쳐 보여 준다. */
 (function(){'use strict';
  var grid=document.getElementById('sgrid'),panel=document.getElementById('cell-panel');if(!grid||!panel)return;
@@ -24,7 +24,7 @@
   var name=NAME[subject];var head=el('div','cphead');var h=el('h2','',grade+'학년 '+name);h.id='cell-title';h.tabIndex=-1;head.append(h);
   var close=el('button','obtn','닫기');close.type='button';close.addEventListener('click',function(){panel.hidden=true;mark(0,'');try{history.replaceState(null,'','?grade='+grade)}catch(e){}});head.append(close);
   var body=[head],cat=(D.catalog.subjects.filter(function(s){return s.subject_id===subject})[0]);
-  var act=el('div','cp-act');var CH={math:1,korean:1,english:3};if(CH[subject]&&grade>=CH[subject]){var ca=el('a','cp-btn','✅ '+grade+'학년 '+name+' 점검하기');ca.href='./index.html?'+(subject==='math'?'':'subject='+subject+'&')+'grade='+grade;act.append(ca)}
+  var act=el('div','cp-act');var CH={math:1,korean:1,english:3,science:3};if(CH[subject]&&grade>=CH[subject]){var ca=el('a','cp-btn','✅ '+grade+'학년 '+name+' 점검하기');ca.href='./index.html?'+(subject==='math'?'':'subject='+subject+'&')+'grade='+grade;act.append(ca)}
   var ga=el('a','cp-btn ghost','📘 '+grade+'학년 1년 안내 글');ga.href='./guide-'+grade+'.html';act.append(ga);body.push(act);
   if(subject==='math'){
    body.push(el('p','lead','단원을 누르면 쉬운 설명과 아이에게 물어볼 질문, 관련 성취기준이 나와요.'),tag('goe'));
@@ -36,7 +36,7 @@
   }else if(subject==='social_studies'||subject==='science'){
    var L=subject==='science'?D.ss.science:D.ss.social;
    body.push(el('p','lead','단원을 누르면 쉬운 설명과 관련 성취기준이 나와요. 자세한 학습지도는 준비 중입니다.'),tag('goe'));
-   body.push(semesters(L,grade,{stdLabel:D.ss.labels.standards}));
+   body.push(semesters(L,grade,subject==='science'?{stdLabel:D.ss.labels.standards,link2:['🌳 이 단원 앞에 알아야 할 것 보기 →',function(u){return './concept-science.html?k='+encodeURIComponent(u.grade+'-'+u.semester+' '+u.unit)}]}:{stdLabel:D.ss.labels.standards}));
   }else if(subject==='english'){
    var e=D.guide.english[grade<=4?'3-4':'5-6'];
    var p=el('p','');p.append(el('b','','이 학년군 핵심 '),tag('ai'));body.push(p);var ul=el('ul','chips');e.key.forEach(function(k){ul.append(el('li','',k))});body.push(ul);

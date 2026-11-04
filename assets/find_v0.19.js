@@ -1,8 +1,8 @@
-/* 우리아이레벨테스트 교재 찾기 v0.14 · 2026-11-04 (v0.13 첫 화면의 찾기 기능을 분리) — 결과마다 단원 설명과 그 학년 점검으로 연결 */
+/* 우리아이레벨테스트 교재 찾기 v0.19 · 2026-11-04 (v0.14 기준: 과학 결과에도 그 학년 점검 연결) — 결과마다 단원 설명과 그 학년 점검으로 연결 */
 (function(){'use strict';
  var Q0=new URLSearchParams(location.search);
  function el(t,c,x){var n=document.createElement(t);if(c)n.className=c;if(x!==undefined)n.textContent=String(x);return n}
- var CHK={math:[1,2,3,4,5,6],korean:[1,2,3,4,5,6],english:[3,4,5,6]};
+ var CHK={math:[1,2,3,4,5,6],korean:[1,2,3,4,5,6],english:[3,4,5,6],science:[3,4,5,6]};
  var fi=document.getElementById('find-input'),fr=document.getElementById('find-result'),F=null;
  function norm(s){return String(s).toLowerCase().replace(/\s+/g,'')}
  function find(q){var n=norm(q);if(!n||!F){fr.replaceChildren();return}
