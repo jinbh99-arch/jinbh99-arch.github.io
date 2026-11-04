@@ -1,4 +1,4 @@
-/* 우리아이레벨테스트 공통 스타일 v0.14 · 2026-11-04 */
+/* 우리아이레벨테스트 공통 스타일 v0.15 · 2026-11-04 */
 :root{--ink:#17263b;--muted:#516178;--line:#dfe6ef;--bg:#f6f8fb;--card:#fff;--navy:#1c3f7a;--g12:#2f9e6b;--g12-bg:#e8f6ef;--g34:#2f7fd1;--g34-bg:#e8f1fc;--g56:#d9822b;--g56-bg:#fdf1e4;--ai:#6b7280;--official:#344777}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -368,3 +368,10 @@ footer{background:#F2F4F6;color:#6B7684}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .static-all{margin:8px 0}.static-all>summary{cursor:pointer;color:var(--muted);font-size:14px;min-height:40px;display:flex;align-items:center}
 .ck-end>a,.ck-end>button{display:flex;align-items:center;justify-content:flex-start;margin:0;padding:6px 0;min-height:44px;font-size:15px;font-weight:700;background:none;border:0;color:var(--navy);text-align:left;font-family:inherit}
+/* ===== v0.15: 첫 화면 목적 질문·설명·단계 안내 ===== */
+.hero4 h1{font-size:clamp(25px,6.6vw,34px);line-height:1.32}
+.hero4 .why{color:#333D4B;font-size:16px;line-height:1.6;margin:8px 0 6px}
+.hero4 .meta{display:inline-block;background:#EDF2FF;color:var(--navy);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:700;margin-top:4px}
+.pick-label{font-size:15px;font-weight:700;color:#333D4B;margin:18px 0 8px}
+.pick-label b{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:7px;background:#EDF2FF;color:var(--navy);font-size:13px;margin-right:6px}
+.cklist>.ck-hint,.cklist>.static-all,.cklist>.ck-end{grid-column:1/-1}
