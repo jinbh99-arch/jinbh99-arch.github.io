@@ -28,7 +28,7 @@
   var ga=el('a','cp-btn ghost','📘 '+grade+'학년 1년 안내 글');ga.href='./guide-'+grade+'.html';act.append(ga);body.push(act);
   if(subject==='math'){
    body.push(el('p','lead','단원을 누르면 쉬운 설명과 아이에게 물어볼 질문, 관련 성취기준이 나와요.'),tag('goe'));
-   body.push(semesters(D.math.units,grade,{stdLabel:D.math.labels.standards,link:['관련 개념 카드와 그림 보기 →',function(u){return './math/index.html?grade='+u.grade+'&q='+encodeURIComponent(u.codes[0])}],link2:['🌳 이 단원 앞에 알아야 할 것 보기 →',function(u){return './concept-math.html?k='+encodeURIComponent(u.grade+'-'+u.semester+' '+u.unit)}]}));
+   body.push(semesters(D.math.units,grade,{stdLabel:D.math.labels.standards,link:['관련 개념 카드와 그림 보기 →',function(u){return './math/index.html?grade='+u.grade+'&standard='+encodeURIComponent(u.codes[0])}],link2:['🌳 이 단원 앞에 알아야 할 것 보기 →',function(u){return './concept-math.html?k='+encodeURIComponent(u.grade+'-'+u.semester+' '+u.unit)}]}));
    var f=el('a','more','🗺️ 수학 개념이 학년마다 어떻게 이어지는지 보기 →');f.href='./flow-math.html?grade='+grade;body.push(f);
   }else if(subject==='korean'){
    body.push(el('p','lead','단원을 누르면 쉬운 설명과 수업 활동, 아이에게 물어볼 질문이 나와요.'),tag('goe'));

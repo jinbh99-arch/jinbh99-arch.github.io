@@ -1,6 +1,5 @@
-/* 우리아이레벨테스트 교재 찾기 v0.21 · 2026-11-04 (v0.19 기준: 찾기 색인 v1.2) — 결과마다 단원 설명과 그 학년 점검으로 연결 */
+/* 우리아이레벨테스트 교재 찾기 v0.22 · 2026-11-19 (v0.19 기준: 찾기 색인 v1.2) — 결과마다 단원 설명과 그 학년 점검으로 연결 */
 (function(){'use strict';
- var Q0=new URLSearchParams(location.search);
  function el(t,c,x){var n=document.createElement(t);if(c)n.className=c;if(x!==undefined)n.textContent=String(x);return n}
  var CHK={math:[1,2,3,4,5,6],korean:[1,2,3,4,5,6],english:[3,4,5,6],science:[3,4,5,6]};
  var fi=document.getElementById('find-input'),fr=document.getElementById('find-result'),F=null;
@@ -10,11 +9,11 @@
   fr.replaceChildren();var st=el('p','muted',R.length?('“'+q+'” 관련 단원 '+R.length+'개'+(R.length===8?' (상위 8개)':'')):('“'+q+'”와 맞는 단원을 찾지 못했어요. 다른 말로 찾아보세요.'));st.setAttribute('role','status');fr.append(st);
   R.forEach(function(x){var e=x[1];var w=el('div','fres');var a=el('a','fitem');a.href='./curriculum.html?grade='+e.g+'&subject='+e.sid;a.append(el('span','fg',e.g+'학년 '+e.m+'학기'),el('b','',e.s+' · '+e.u),el('span','ft',e.t),el('span','fgo','단원 설명 보기 →'));w.append(a);
    if(CHK[e.sid]&&CHK[e.sid].indexOf(e.g)>=0){var c=el('a','fcheck',e.g+'학년 '+e.s+' 점검하기 →');c.href='./index.html?'+(e.sid==='math'?'':'subject='+e.sid+'&')+'grade='+e.g;w.append(c)}fr.append(w)});
-  try{history.replaceState(null,'','?q='+encodeURIComponent(q))}catch(e){}}
+ }
  if(fi){var tm;fi.addEventListener('input',function(){clearTimeout(tm);tm=setTimeout(function(){find(fi.value)},120)});
   [].forEach.call(document.querySelectorAll('.fchip'),function(b){b.addEventListener('click',function(){fi.value=b.textContent;find(fi.value);fi.focus()})})}
 
- fetch('./data/find_index_v1.2.json',{cache:'no-cache'}).then(function(r){if(!r.ok)throw Error();return r.json()}).then(function(d){F=d;var q=Q0.get('q');if(q&&fi&&q.length<30){fi.value=q;find(q)}})
+ fetch('./data/find_index_v1.2.json',{cache:'no-cache'}).then(function(r){if(!r.ok)throw Error();return r.json()}).then(function(d){F=d})
   .catch(function(){var p=el('p','err','찾기 자료를 불러오지 못했습니다. 잠시 후 새로고침해 주세요.');p.setAttribute('role','alert');fr.replaceChildren(p)});
  window.uriaiFind={find:function(q){find(q)}};
 })();
