@@ -60,19 +60,28 @@ async function call(path,body,auth){
 })();
 document.getElementById('complete').onclick=async()=>{
  const email=document.getElementById('email').value.trim();
- const pin=document.getElementById('pin').value;
- if(!grant||!/^[0-9]{6,12}$/.test(pin)||!email){status('이메일과 숫자 6~12자리 PIN을 확인하세요.');return}
+ const pinInput=document.getElementById('pin');
+ const pin=pinInput.value;
+ pinInput.value='';
+ const enrollGrant=grant;
+ grant='';
+ if(!enrollGrant||!/^[0-9]{6,12}$/.test(pin)||!email){status('이메일과 숫자 6~12자리 PIN을 확인하세요.');return}
  try{
-  await call('pin/enroll',{enroll_grant:grant,pin});
+  await call('pin/enroll',{enroll_grant:enrollGrant,pin});
   const v=await call('pin/verify',{email,pin});
   token=v.access_token;
-  document.getElementById('pin').value='';
   form.hidden=true;
   document.getElementById('answer').hidden=false;
   document.getElementById('revoke').hidden=false;
   status('PIN 등록과 로그인 성공. 10분 답안토큰이 발급됐습니다.');
- }catch(e){status('등록 또는 로그인 실패: '+e.message)}
+ }catch(e){token='';status('등록 또는 로그인 실패: '+e.message)}
+ finally{pinInput.value=''}
 };
+addEventListener('pagehide',()=>{
+ document.getElementById('pin').value='';
+ grant='';
+ token='';
+});
 document.getElementById('answer').onclick=async()=>{
  try{const d=await call('answers/qa-email-auth-smoke',null,token);status('답안토큰 검증 성공: '+String(d.answer?.message||'승인된 QA 답안 확인'))}
  catch(e){status('답안 조회 실패: '+e.message)}
