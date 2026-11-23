@@ -30,7 +30,7 @@ small{display:block;margin-top:14px;color:#52677a}
 <button id="answer" type="button" hidden>승인된 QA 답안 조회</button>
 <button id="revoke" type="button" hidden>시험 토큰 즉시 철회</button>
 <div id="status" role="status" aria-live="polite">메일 링크를 확인하고 있습니다…</div>
-<small>PIN과 토큰은 이 화면 밖으로 전송·기록하지 않습니다. 실제 가족·아동 정보는 입력하지 마세요.</small>
+<small>PIN은 인증 서버로 전송되며 입력란은 요청 전에 비워집니다. 시험 토큰은 답안 확인·철회 요청에 사용됩니다. 실제 가족·아동 정보는 입력하지 마세요.</small>
 </main>
 <script>
 const API='https://fadbjjibrckqdelxhcjv.supabase.co/functions/v1/level-parent-auth/';
