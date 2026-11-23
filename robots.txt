@@ -1,4 +1,43 @@
+# robots.txt
+# 작성: 2026-11-23 (v1.0)
+# 목적: 검색 노출은 허용, AI 학습(training) 목적 수집은 차단
+
+# ── 일반 크롤러: 전체 허용 (검색 노출 유지) ──
 User-agent: *
 Allow: /
+
+# ── AI 학습(training) 전용 크롤러: 차단 ──
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: meta-externalagent
+Disallow: /
+
+User-agent: Amazonbot
+Disallow: /
+
+User-agent: Diffbot
+Disallow: /
 
 Sitemap: https://jinbh99-arch.github.io/sitemap.xml
