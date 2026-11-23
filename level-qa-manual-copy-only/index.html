@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Cache-Control" content="no-store">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src https://fadbjjibrckqdelxhcjv.supabase.co; style-src 'unsafe-inline'; script-src 'unsafe-inline'; form-action 'none'; base-uri 'none'; frame-ancestors 'none'">
+<title>01 LEVEL 보호자 이메일 인증 시험</title>
+<style>
+body{font-family:system-ui,sans-serif;max-width:620px;margin:0 auto;padding:24px;background:#f5f9ff;color:#182230}
+main{background:#fff;border:1px solid #cddbeb;border-radius:16px;padding:22px;box-shadow:0 8px 24px #1b4f7214}
+h1{font-size:1.35rem}label{display:block;margin:14px 0 6px;font-weight:700}
+input,button{box-sizing:border-box;width:100%;font:inherit;padding:12px;border-radius:10px}
+input{border:1px solid #9eb3c8}button{margin-top:12px;border:0;background:#1467a5;color:#fff;font-weight:700}
+button:disabled{opacity:.55}#status{margin-top:16px;padding:12px;border-radius:10px;background:#eef5fb;white-space:pre-wrap}
+small{display:block;margin-top:14px;color:#52677a}
+</style>
+</head>
+<body><main>
+<h1>01 LEVEL 보호자 이메일 인증 시험</h1>
+<p>이 페이지는 1회 QA용입니다. 메일 링크의 소유확인을 완료한 뒤 6~12자리 숫자 PIN을 등록합니다.</p>
+<section id="form" hidden>
+<label for="email">확인한 이메일</label>
+<input id="email" type="email" autocomplete="email" maxlength="254">
+<label for="pin">시험용 PIN (숫자 6~12자리)</label>
+<input id="pin" type="password" inputmode="numeric" autocomplete="new-password" minlength="6" maxlength="12">
+<button id="complete" type="button">PIN 등록·로그인·답안토큰 확인</button>
+</section>
+<button id="answer" type="button" hidden>승인된 QA 답안 조회</button>
+<button id="revoke" type="button" hidden>시험 토큰 즉시 철회</button>
+<div id="status" role="status" aria-live="polite">메일 링크를 확인하고 있습니다…</div>
+<small>PIN과 토큰은 이 화면 밖으로 전송·기록하지 않습니다. 실제 가족·아동 정보는 입력하지 마세요.</small>
+</main>
+<script>
+const API='https://fadbjjibrckqdelxhcjv.supabase.co/functions/v1/level-parent-auth/';
+const statusEl=document.getElementById('status');
+const form=document.getElementById('form');
+let grant='',token='';
+function status(s){statusEl.textContent=s}
+async function call(path,body,auth){
+ const headers={'Content-Type':'application/json'};
+ if(auth)headers.Authorization='Bearer '+auth;
+ const res=await fetch(API+path,{method:body?'POST':'GET',headers,body:body?JSON.stringify(body):undefined,cache:'no-store',referrerPolicy:'no-referrer'});
+ let data={};try{data=await res.json()}catch{}
+ if(!res.ok)throw new Error('HTTP '+res.status+' '+(data.error||'request_failed'));
+ return data;
+}
+(async()=>{
+ const p=new URLSearchParams(location.hash.slice(1));
+ const proof=p.get('proof')||'';
+ history.replaceState(null,'',location.pathname);
+ if(!proof){status('유효한 이메일 인증 링크로 접속해 주세요.');return}
+ try{
+  const data=await call('email/confirm',{proof});
+  grant=data.enroll_grant;
+  form.hidden=false;
+  status('이메일 소유확인이 완료됐습니다. PIN을 등록하세요.');
+ }catch(e){status('링크 확인 실패: '+e.message)}
+})();
+document.getElementById('complete').onclick=async()=>{
+ const email=document.getElementById('email').value.trim();
+ const pin=document.getElementById('pin').value;
+ if(!grant||!/^[0-9]{6,12}$/.test(pin)||!email){status('이메일과 숫자 6~12자리 PIN을 확인하세요.');return}
+ try{
+  await call('pin/enroll',{enroll_grant:grant,pin});
+  const v=await call('pin/verify',{email,pin});
+  token=v.access_token;
+  document.getElementById('pin').value='';
+  form.hidden=true;
+  document.getElementById('answer').hidden=false;
+  document.getElementById('revoke').hidden=false;
+  status('PIN 등록과 로그인 성공. 10분 답안토큰이 발급됐습니다.');
+ }catch(e){status('등록 또는 로그인 실패: '+e.message)}
+};
+document.getElementById('answer').onclick=async()=>{
+ try{const d=await call('answers/qa-email-auth-smoke',null,token);status('답안토큰 검증 성공: '+String(d.answer?.message||'승인된 QA 답안 확인'))}
+ catch(e){status('답안 조회 실패: '+e.message)}
+};
+document.getElementById('revoke').onclick=async()=>{
+ try{await call('session/revoke',{},token);token='';document.getElementById('answer').hidden=true;document.getElementById('revoke').hidden=true;status('시험 토큰이 즉시 철회됐습니다.')}
+ catch(e){status('철회 실패: '+e.message)}
+};
+</script></body></html>
