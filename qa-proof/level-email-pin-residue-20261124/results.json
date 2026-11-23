@@ -1,0 +1,64 @@
+{
+  "test_id": "01_EMAIL_QA_PIN_RESIDUE_20261124",
+  "candidate_commit": "a2fcb23f14940daa6c0578b5ecf75625d0faf10b",
+  "candidate_blob": "5e8d6d436d929a3c4c35ab1926ae5fd883b891e8",
+  "parent_commit": "79c073978be06b232b9c8728a14179a1d4f2535c",
+  "cases": [
+    {
+      "mode": "verify_fail",
+      "calls": [
+        "email/confirm",
+        "pin/enroll",
+        "pin/verify"
+      ],
+      "pin_empty": true,
+      "grant_retry_calls": 0,
+      "hash_empty": true,
+      "storage_writes": 0,
+      "pagehide_pin_empty": true
+    },
+    {
+      "mode": "enroll_fail",
+      "calls": [
+        "email/confirm",
+        "pin/enroll"
+      ],
+      "pin_empty": true,
+      "grant_retry_calls": 0,
+      "hash_empty": true,
+      "storage_writes": 0,
+      "pagehide_pin_empty": true
+    },
+    {
+      "mode": "invalid",
+      "calls": [
+        "email/confirm"
+      ],
+      "pin_empty": true,
+      "grant_retry_calls": 0,
+      "hash_empty": true,
+      "storage_writes": 0,
+      "pagehide_pin_empty": true
+    },
+    {
+      "mode": "success",
+      "calls": [
+        "email/confirm",
+        "pin/enroll",
+        "pin/verify"
+      ],
+      "pin_empty": true,
+      "hash_empty": true,
+      "storage_writes": 0,
+      "pagehide_pin_empty": true
+    }
+  ],
+  "summary": {
+    "pass": 4,
+    "fail": 0
+  },
+  "browser_320_390": {
+    "status": "ENV_BLOCKED",
+    "error": "Chromium process_singleton_posix socket() failed: Operation not permitted (1)"
+  }
+}
